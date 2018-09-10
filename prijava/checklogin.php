@@ -10,7 +10,7 @@ if ( isset ($_POST['submit']))
     $password = trim ($_POST['password']);
 
     //V spremenljivko result si zabeležim geslo, id in uporabniško ime
-    $sql = $pdo->prepare("SELECT password, id, username FROM users WHERE email=?");
+    $sql = $pdo->prepare("SELECT password, id, username, edit_hotels FROM users WHERE email=?");
     $sql->execute(array($email));
     $result = $sql->fetch();
 
@@ -37,6 +37,7 @@ if ( isset ($_POST['submit']))
         $hash = $result['password'];
         $user_id = $result['id'];
         $username = $result['username'];
+        $editor = $result['edit_hotels'];
     }
     else if ($result1)
     {
@@ -51,6 +52,7 @@ if ( isset ($_POST['submit']))
         $_SESSION['user_id'] = $user_id;
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
+        $_SESSION['editor'] = $editor;
         if ($username == "admin")
         {
             $_SESSION['admin'] = true;
