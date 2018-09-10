@@ -8,6 +8,9 @@ require_once ('../x/checkadminlogin.php');
         <title>Glavna stran - Admin</title>
     </head>
     <body>
-        <a href="../logout.php">Odjava</a>
+        <a href="../logout.php">Odjava</a><br />
+        <a href="iud/dodaj_ponudnika.php">Dodaj ponudnika</a><br />
+        <a href="iud/odstrani_ponudnika.php">Odstrani ponudnika</a><br />
+
     </body>
 </html>
