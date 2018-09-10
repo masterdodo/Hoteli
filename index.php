@@ -11,6 +11,7 @@ require_once ('x/checkuserlogin.php');
         <?php
             include ('x/header.php');
         ?>
+        <a href="logout.php">Odjava</a>
         <?php
             require_once ('x/dbconn.php');
             if ($_SESSION['editor'] == 1)
