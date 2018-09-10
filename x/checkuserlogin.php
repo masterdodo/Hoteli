@@ -1,7 +1,8 @@
 <?php
+session_start();
 if (!isset ($_SESSION['username']))
 {
-    header("location:../prijava/index.php");
+    header("location:/hoteli/prijava/");
     exit;
 }
 else
