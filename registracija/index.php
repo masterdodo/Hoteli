@@ -15,6 +15,7 @@
             {
                 echo '<div id="err">' . $_SESSION['err'] . '</div>';
             }
+            $_SESSION['err'] = "";
             ?>
         </form>
     </body>
