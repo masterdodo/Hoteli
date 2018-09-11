@@ -2,6 +2,9 @@
 //Zahtevam povezavo na bazo
 require_once ('../../x/dbconn.php');
 
+//Preverim če je admin prijavljen
+require_once ('../../x/checkadminlogin.php');
+
 //Preverim če so bili podatki poslani
 if (isset ($_POST['submit']))
 {
@@ -35,6 +38,7 @@ if (isset ($_POST['submit']))
     //Preverim če ni bilo napak in ga vpišem v tabelo users
     if ($error == 0)
     {
+        //Generiram hash gesla in vpišem ponudnika v DB
         $pass_hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = $pdo->prepare ("INSERT INTO users(username, email, password, edit_hotels) VALUES (?,?,?,1)");
         try

@@ -1,4 +1,5 @@
 <?php
+//Preverim če je admin prijavljen
 require_once ('../x/checkadminlogin.php');
 ?>
 <html>
