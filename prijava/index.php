@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset ($_SESSION['username']) && $_SESSION['username'] == "admin")
+{
+    header ('location:../admin/');
+}
+else if (isset ($_SESSION['username']))
+{
+    header ('location:../');
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
