@@ -3,6 +3,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prijava</title>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="888956527514-q5opl62umv8bubmcsbaktbrhanm59p3f.apps.googleusercontent.com">
     </head>
     <body>
         <form action="checklogin.php" method="POST">
@@ -19,5 +21,6 @@
             $_SESSION['err'] = "";
             ?>
         </form>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </body>
 </html>
