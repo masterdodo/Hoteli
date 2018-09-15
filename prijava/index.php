@@ -23,8 +23,6 @@ else if (isset ($_SESSION['username']))
             <input type="password" name="password" placeholder="Geslo"><br />
             <input type="submit" name="submit" value="Prijava">
             <?php
-            //Zaženem sejo in v primeru napak le te izpišem
-            session_start();
             if ((isset ($_SESSION['err'])) && ($_SESSION['err'] != ""))
             {
                 echo '<div id="err">' . $_SESSION['err'] . '</div>';
