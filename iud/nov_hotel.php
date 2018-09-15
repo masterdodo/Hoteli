@@ -1,5 +1,15 @@
 <?php
-
+if (isset ($_POST['submit']))
+{
+    session_start();
+    //Zahtevam povezavo na bazo
+    include ('../x/dbconn.php');
+    //Napišem in izvedem UPDATE stavek
+    $sql = 'INSERT INTO hotels(name, address, date_from, date_to, city_id, user_id) VALUES(?, ?, ?, ?, ?, ?)';
+    $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['city'],$_SESSION['user_id']]);
+    header ('location:../');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

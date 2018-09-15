@@ -1,5 +1,13 @@
 <?php
-
+if (isset ($_POST['submit']))
+{
+    //Zahtevam povezavo na bazo
+    include ('../x/dbconn.php');
+    //Napišem in izvedem UPDATE stavek
+    $sql = 'UPDATE hotels SET name = ?, address = ?, date_from = ?, date_to = ?, city_id = ? WHERE id = ?';
+    $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['city'],$_GET['y']]);
+    var_dump ($stmt);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +23,7 @@
         include ('../x/dbconn.php');
         $sql = 'SELECT * FROM hotels WHERE id = ?';
         $stmt = $pdo->prepare ($sql)->execute ([$_GET['y']]);
+        var_dump ($stmt);
         $row = $stmt->fetch (PDO::FETCH_ASSOC);
         echo '<input type="text" name="name" placeholder="Ime hotela" value="' . $row['name'] . '"><br />
               <input type="text" name="address" placeholder="Naslov hotela" value="' . $row['address'] . '"><br />
@@ -29,10 +38,10 @@
             $dateresult_from = $date_from->format("Y-m-d");
             $dateresult_to = $date_to->format("Y-m-d");
         echo '</select><br />
-              <input type="date" name="date_from" value=""><br />
-              <input type="date" name="date_to" value=""><br />';
+              <input type="date" name="date_from" value="' . $dateresult_from . '"><br />
+              <input type="date" name="date_to" value="' . $dateresult_to . '"><br />';
         ?>
-        <input class="button-submit" type="submit" name="submit" value="Dodaj hotel">
+        <input class="button-submit" type="submit" name="submit" value="Uredi hotel">
     </form>
 </body>
 </html>
