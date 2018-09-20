@@ -26,10 +26,10 @@ require_once ('../../x/checkadminlogin.php');
                 //Zaženem foreach zanko v kateri izpišem vsakega ponudnika v svojo vrsto
                 foreach ($stmt as $row)
                 {
-                    echo '<tr>';
-                    echo '<td>' . $row['email'] . '</td>';
-                    echo '<td><a href="izbrisi_ponudnika.php?y=' . $row['id'] . '">Odstrani</a></td>';
-                    echo '</tr>';
+                    echo '<tr>
+                          <td>' . $row['email'] . '</td>
+                          <td><a href="izbrisi_ponudnika.php?y=' . $row['id'] . '">Odstrani</a></td>
+                          </tr>';
                 }
             ?>
         </tbody>

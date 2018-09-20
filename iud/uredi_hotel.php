@@ -11,6 +11,7 @@ if (isset ($_POST['submit']))
 ?>
 <?php
 $title = "Uredi hotel";
+$css = "../css/main.css";
 include ('../x/header.php');
 ?>
     <form method="post">

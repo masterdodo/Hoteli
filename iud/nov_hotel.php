@@ -11,14 +11,11 @@ if (isset ($_POST['submit']))
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodaj hotel</title>
-</head>
-<body>
+<?php
+$title = "Dodaj hotel";
+$css = "../css/main.css";
+include ('../x/header.php');
+?>
     <form method="post">
         <input type="text" name="name" placeholder="Ime hotela"><br />
         <input type="text" name="address" placeholder="Naslov hotela"><br />
@@ -36,5 +33,6 @@ if (isset ($_POST['submit']))
         <input type="date" name="date_to"><br />
         <input class="button-submit" type="submit" name="submit" value="Dodaj hotel">
     </form>
-</body>
-</html>
+<?php
+include ('../x/footer.php');
+?>

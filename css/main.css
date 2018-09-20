@@ -1,0 +1,136 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #2B2E28;
+    color: #D2D2D0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    -webkit-box-shadow: 0px 4px 8px 0px rgba(219,219,219,0.51);
+    -moz-box-shadow: 0px 4px 8px 0px rgba(219,219,219,0.51);
+    box-shadow: 0px 4px 8px 0px rgba(219,219,219,0.51);
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 50px;
+}
+
+#header-link-move-right
+{
+    font-family: inherit;
+    margin-left: auto;
+}
+
+#header-username
+{
+    font-family: inherit;
+    margin-left: 8px;
+}
+
+.header-links
+{
+    font-family: inherit;
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #D2D2D0;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right: 2px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    transition: background-color .3s;
+}
+
+.header-links:hover, .header-links:focus
+{
+    background-color: #F9F9F9;
+}
+  
+.header-links > *
+{
+    position: relative;
+}
+  
+.header-links span
+{
+    font-family: inherit;
+    display: block;
+    padding: 12px 24px;
+}
+  
+.header-links:before
+{
+    content: "";
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    display: block;
+    width: 0;
+    padding-top: 0;
+      
+    border-radius: 100%;
+    
+    background-color: rgba(236, 240, 241, .3);
+    
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+  
+.header-links:active:before
+{
+    width: 120%;
+    padding-top: 120%;
+    
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+#header-profile-picture
+{
+    font-family: inherit;
+    border-radius: 90px;
+    border: solid 2px #FFF;
+}
+
+.input-standard
+{
+    font-family: inherit;
+    border: 0;
+    border-bottom: #D2D2D0 solid 2px;
+    background-color: inherit;
+    color: #D2D2D0;
+    width: 15%;
+    height: 30px;
+    font-size: 18px;
+}
+
+.input-standard:focus
+{
+    border-bottom-color: #FFF;
+}
+
+.input-submit
+{
+    font-family: inherit;
+    text-decoration: none;
+    border: 0;
+    background-color: #D2D2D0;
+    color: #2B2E28;
+    width: 5%;
+    height: 30px;
+    margin: 5px;
+    font-size: 14px;
+}

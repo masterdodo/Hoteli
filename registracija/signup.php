@@ -53,11 +53,47 @@ if (isset ($_POST['submit']))
     //Preverim če ni bilo napak in ga vpišem v tabelo users
     if ($error == 0)
     {
+        $avatar_path = "../assets/avatars/" . $username . "/";
+        $target_file = $avatar_path . basename($_FILES["avatar"]["name"]);
+        $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $profile_picture_db_path = "/Hoteli/assets/avatars/" . $username . "/profile" . $ext;
+        $uploadOk = 1;
+        $check = getimagesize($_FILES["avatar"]["tmp_name"]);
+        if($check !== false)
+        {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        }
+        else
+        {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+        if (!file_exists($avatar_path))
+        {
+            mkdir($avatar_path, 0777, true);
+        }
+        if ($uploadOk == 1)
+        {
+            if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . "profile" . $ext))
+            {
+                echo 'Uspešno!';
+            }
+            else
+            {
+                echo 'Neuspešno!';
+            }
+        }
+        else
+        {
+            echo 'Napaka!';
+        }
+
         $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql2 = $pdo->prepare ("INSERT INTO users(username, email, password) VALUES (?,?,?)");
+        $sql2 = $pdo->prepare ("INSERT INTO users(username, email, password, avatar) VALUES (?,?,?,?)");
         try
         {
-            $sql2->execute (array ($username, $email, $pass_hash));
+            $sql2->execute (array ($username, $email, $pass_hash, $profile_picture_db_path));
             header ("Location:../");
         }
         catch ( PDOException $err)

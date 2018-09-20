@@ -1,5 +1,6 @@
 <?php
 $title = "Uredi profil";
+$css = "../css/main.css";
 include ('../x/header.php');
 require ('../x/dbconn.php');
 ?>
@@ -17,6 +18,7 @@ if (isset ($_POST['submit-username']))
     {
         $sql = 'UPDATE users SET username = ? WHERE id = ?';
         $stmt = $pdo->prepare ($sql)->execute ([$_POST['username'], $_SESSION['user_id']]);
+        $_SESSION['username'] = $_POST['username'];
         header ('location:./');
         echo 'Uporabniško ime spremenjeno';
     }
@@ -31,13 +33,13 @@ else if (isset ($_POST['submit-password']))
 }
 ?>
 <form method="post">
-    <input type="text" name="username" placeholder="Uporabniško ime"><br />
-    <input type="submit" name="submit-username" value="Spremeni">
+    <input type="text" name="username" placeholder="Uporabniško ime" class="input-standard">
+    <input type="submit" name="submit-username" value="Spremeni" class="input-submit">
 </form>
-<br /><br />
+<br />
 <form method="post">
-    <input type="password" name="password" placeholder="Geslo"><br />
-    <input type="submit" name="submit-password" value="Spremeni">
+    <input type="password" name="password" placeholder="Geslo" class="input-standard">
+    <input type="submit" name="submit-password" value="Spremeni" class="input-submit">
 </form>
 <?php
 include ('../x/footer.php');

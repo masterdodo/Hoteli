@@ -1,5 +1,6 @@
 <?php
 $title = "Hoteli";
+$css = "css/main.css";
 include ('x/header.php');
 require ('x/dbconn.php');
 //Preverim, če je uporabnik ponudnik hotelov
