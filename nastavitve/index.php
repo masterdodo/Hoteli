@@ -31,6 +31,48 @@ else if (isset ($_POST['submit-password']))
     header ('location:./');
     echo 'Geslo spremenjeno';
 }
+else if (isset ($_POST['submit-avatar']))
+{
+    $username = $_SESSION['username'];
+    $avatar_path = "../assets/avatars/" . $username . "/";
+    $target_file = $avatar_path . basename($_FILES["avatar"]["name"]);
+    $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $profile_picture_db_path = "/Hoteli/assets/avatars/" . $username . "/profile" . $ext;
+    $uploadOk = 1;
+    $check = getimagesize($_FILES["avatar"]["tmp_name"]);
+    if($check !== false)
+    {
+        echo 'Datoteka je slika.';
+        $uploadOk = 1;
+    }
+    else
+    {
+        echo 'Datoteka ni slika.';
+        $uploadOk = 0;
+    }
+    if (!file_exists($avatar_path))
+    {
+        mkdir($avatar_path, 0777, true);
+    }
+    if ($uploadOk == 1)
+    {
+        if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . "profile" . $ext))
+        {
+            echo 'Uspešno!';
+            $sql = $pdo->prepare ('UPDATE users SET avatar = ? WHERE id = ?');
+            $sql->execute (array ($profile_picture_db_path, $_SESSION['user_id']));
+            $_SESSION['avatar'] = $profile_picture_db_path;
+        }
+        else
+        {
+            echo 'Neuspešno!';
+        }
+    }
+    else
+    {
+            echo 'Napaka!';
+    }
+}
 ?>
 <form method="post">
     <input type="text" name="username" placeholder="Uporabniško ime" class="input-standard">
@@ -40,6 +82,12 @@ else if (isset ($_POST['submit-password']))
 <form method="post">
     <input type="password" name="password" placeholder="Geslo" class="input-standard">
     <input type="submit" name="submit-password" value="Spremeni" class="input-submit">
+</form>
+<br />
+<form method="post" enctype="multipart/form-data">
+    <label class="label-standard" for="avatar">Slika profila</label><br />
+    <input type="file" name="avatar" class="input-standard">
+    <input type="submit" name="submit-avatar" value="Spremeni" class="input-submit">
 </form>
 <?php
 include ('../x/footer.php');

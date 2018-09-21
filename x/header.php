@@ -18,7 +18,7 @@ if (!isset ($_SESSION['username']))
     </head>
     <body>
     <div id="header">
-        <img src="<?php echo $_SESSION['avatar']; ?>" height="32" width="32" alt="avatar" id="header-profile-picture"> <div id="header-username"><?php echo strtoupper($_SESSION['username']); ?></div>
+        <img src="<?php echo $_SESSION['avatar']; ?>" height="32" width="32" alt="PP" id="header-profile-picture"> <div id="header-username"><?php echo strtoupper($_SESSION['username']); ?></div>
         <a class="header-links" id="header-link-move-right" href="/hoteli/nastavitve">Uredi profil</a>
         <a class="header-links" href="/hoteli/logout.php">Odjava</a>
     </div>

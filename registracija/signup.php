@@ -61,12 +61,12 @@ if (isset ($_POST['submit']))
         $check = getimagesize($_FILES["avatar"]["tmp_name"]);
         if($check !== false)
         {
-            echo "File is an image - " . $check["mime"] . ".";
+            echo 'Datoteka je slika.';
             $uploadOk = 1;
         }
         else
         {
-            echo "File is not an image.";
+            echo 'Datoteka ni slika.';
             $uploadOk = 0;
         }
         if (!file_exists($avatar_path))
