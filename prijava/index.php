@@ -21,8 +21,8 @@ else if (isset ($_SESSION['username']))
     <body>
         <div id="login-wrapper">
             <form action="checklogin.php" method="POST">
-                <input type="text" name="email" placeholder="E-pošta" class="input-login"><br />
-                <input type="password" name="password" placeholder="Geslo" class="input-login"><br />
+                <input type="text" name="email" placeholder="E-pošta" class="input-login-standard"><br />
+                <input type="password" name="password" placeholder="Geslo" class="input-login-standard"><br />
                 <input type="submit" name="submit" value="Prijava" class="input-login-submit">
                 <?php
                 if ((isset ($_SESSION['err'])) && ($_SESSION['err'] != ""))
@@ -32,7 +32,6 @@ else if (isset ($_SESSION['username']))
                 $_SESSION['err'] = "";
                 ?>
             </form>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
     </body>
 </html>

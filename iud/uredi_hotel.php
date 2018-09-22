@@ -8,6 +8,55 @@ if (isset ($_POST['submit']))
     $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['city'],$_GET['y']]);
     var_dump ($stmt);
 }
+else if (isset ($_POST['submit-picture']))
+{
+    session_start();
+    //Zahtevam povezavo na bazo
+    include ('../x/dbconn.php');
+    //Urejanje slike
+    $username = $_SESSION['username'];
+    $hotel_name = $_POST['name'];
+    $picture_path = "../assets/hotels/" . $username . "/" . $hotel_name . "/";
+    $target_file = $picture_path . basename($_FILES["picture"]["name"]);
+    $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $picture_db_path = "/Hoteli/assets/hotels/" . $username . "/" . $hotel_name . "/picture" . $ext;
+    $uploadOk = 1;
+    $check = getimagesize($_FILES["picture"]["tmp_name"]);
+    if($check !== false)
+    {
+        echo 'Datoteka je slika.';
+        $uploadOk = 1;
+    }
+    else
+    {
+        echo 'Datoteka ni slika.';
+        $uploadOk = 0;
+    }
+    if (!file_exists($picture_path))
+    {
+        mkdir($picture_path, 0777, true);
+    }
+    if ($uploadOk == 1)
+    {
+        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $picture_path . "picture" . $ext))
+        {
+            //Napišem in izvedem INSERT stavek
+            echo 'Uspešno!';
+            $sql = 'UPDATE hotels SET picture = ?';
+            $stmt = $pdo->prepare ($sql)->execute ([$picture_db_path]);
+            header ('location:../');
+            exit;
+        }
+        else
+        {
+            echo 'Neuspešno!';
+        }
+    }
+    else
+    {
+            echo 'Napaka!';
+    }
+}
 ?>
 <?php
 $title = "Uredi hotel";
@@ -23,13 +72,21 @@ include ('../x/header.php');
         $sql->execute (array ($_GET['y']));
         $result = $sql->fetch(PDO::FETCH_ASSOC);
         //Izpišem obrazec z vpisanimi podatki
-        echo '<input type="text" name="name" placeholder="Ime hotela" value="' . $result['name'] . '"><br />
-              <input type="text" name="address" placeholder="Naslov hotela" value="' . $result['address'] . '"><br />
-              <select name="city">';
+        echo '<input type="text" name="name" placeholder="Ime hotela" value="' . $result['name'] . '" class="input-standard"><br />
+              <input type="text" name="address" placeholder="Naslov hotela" value="' . $result['address'] . '" class="input-standard"><br />
+              <select name="city" class="input-standard">';
         $stmt = $pdo->query ('SELECT * FROM cities');
         foreach ($stmt as $row1)
         {
-            echo '<option value="' . $row1['id'] . '">' . $row1['name'] . '</option>';
+            if ($row1['id'] == $result['city_id'])
+            {
+                $selected = 'selected';
+            }
+            else
+            {
+                $selected = '';
+            }
+            echo '<option ' . $selected . ' value="' . $row1['id'] . '">' . $row1['name'] . '</option>';
         }
         $date_from = $result['date_from'];
         $date_to = $result['date_to'];
@@ -38,10 +95,16 @@ include ('../x/header.php');
         $dateresult_from = $date_from->format("Y-m-d");
         $dateresult_to = $date_to->format("Y-m-d");
         echo '</select><br />
-              <input type="date" name="date_from" value="' . $dateresult_from . '"><br />
-              <input type="date" name="date_to" value="' . $dateresult_to . '"><br />';
+              <input type="date" name="date_from" value="' . $dateresult_from . '" class="input-standard"><br />
+              <input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard"><br />';
         ?>
-        <input class="button-submit" type="submit" name="submit" value="Uredi hotel">
+        <input class="button-standard" type="submit" name="submit" value="Uredi hotel">
+    </form><br />
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="name" value="<?php echo $result['name'] ?>">
+        <label for="picture">Spremeni sliko</label><br />
+        <input type="file" name="picture" class="input-standard"><br />
+        <input class="button-standard" type="submit" name="submit-picture" value="Uredi sliko hotela">
     </form>
 </body>
 </html>

@@ -53,18 +53,16 @@ if (isset ($_POST['submit']))
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodaj ponudnika</title>
-</head>
-<body>
+<?php
+$title = 'Admin - Dodaj Ponudnika';
+$css = '../../css/main.css';
+include '../../x/header.php';
+?>
     <form method="post">
-        <input type="text" name="email" placeholder="Epošta"><br />
-        <input type="password" name="password" placeholder="Geslo"><br />
-        <input type="submit" name="submit" value="Dodaj">
+        <input class="input-standard" type="text" name="email" placeholder="Epošta"><br />
+        <input class="input-standard" type="password" name="password" placeholder="Geslo"><br />
+        <input class="button-standard" type="submit" name="submit" value="Dodaj">
     </form>
-</body>
-</html>
+<?php
+include '../../x/footer.php';
+?>

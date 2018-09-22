@@ -7,15 +7,29 @@ require ('x/dbconn.php');
 if ($_SESSION['editor'] == 1)
 {
     //Prikažem gumb za dodajanje hotelov
-    echo '<a href="iud/nov_hotel.php" class="button-standard">Nov hotel</a>';
+    echo '<a href="iud/nov_hotel.php" class="button-standard">Nov hotel</a><br /><br />';
 }
-$stmt = $pdo->query ('SELECT id, name, address, date_from, date_to, user_id FROM hotels');
+$stmt = $pdo->query ('SELECT id, name, address, date_from, date_to, user_id, picture, city_id FROM hotels');
 foreach ($stmt as $row)
 {
-    echo '<div id="hotel' . $row['id'] . '">
+    $date_from = $row['date_from'];
+    $date_to = $row['date_to'];
+    $date_from = new DateTime($date_from);
+    $date_to = new DateTime($date_to);
+    $dateresult_from = $date_from->format("d. m. Y");
+    $dateresult_to = $date_to->format("d. m. Y");
+
+    $sql = $pdo->prepare ("SELECT name FROM cities WHERE id = ?");
+    $sql->execute (array ($row['city_id']));
+    $result = $sql->fetch(PDO::FETCH_ASSOC);
+    $city = $result['name'];
+    echo '<div class="hotel-box" id="hotel' . $row['id'] . '">
+          <img class="hotel-picture" src="' . $row['picture'] . '" alt="HOTEL" height="150">
+          <div class="hotel-content">
           <div class="ime-hotela">' . $row['name'] . '</div>
-          <div class="naslov-hotela">' . $row['address'] . '</div>
-          <div class="datum">Od: ' . $row['date_from'] . ' Do: ' . $row['date_to'] . '</div>';
+          <div class="naslov-hotela">' . $row['address'] . ', ' . $city . '</div>
+          <div class="datum"><b>Od:</b> ' . $dateresult_from . ' <b>Do:</b> ' . $dateresult_to . '</div>
+          </div>';
 
     if ($_SESSION['editor'] == 1 && $_SESSION['user_id'] == $row['user_id'])
     {

@@ -1,16 +1,12 @@
-<?
+<?php
 //Preverim če je admin prijavljen
 require_once ('../../x/checkadminlogin.php');
+//Dodam header
+$title = 'Admin - Odstrani Ponudnika';
+$css = '../../css/main.css';
+include '../../x/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odstrani ponudnika</title>
-</head>
-<body>
-    <table>
+    <table class="table-standard">
         <thead>
             <td>Epošta</td>
             <td>Odstrani</td>
@@ -28,11 +24,12 @@ require_once ('../../x/checkadminlogin.php');
                 {
                     echo '<tr>
                           <td>' . $row['email'] . '</td>
-                          <td><a href="izbrisi_ponudnika.php?y=' . $row['id'] . '">Odstrani</a></td>
+                          <td><a class="table-button" href="izbrisi_ponudnika.php?y=' . $row['id'] . '">Odstrani</a></td>
                           </tr>';
                 }
             ?>
         </tbody>
     </table>
-</body>
-</html>
+<?php
+include '../../x/footer.php';
+?>
