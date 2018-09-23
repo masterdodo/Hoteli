@@ -9,7 +9,7 @@ if ($_SESSION['editor'] == 1)
     //Prikažem gumb za dodajanje hotelov
     echo '<a href="iud/nov_hotel.php" class="button-standard">Nov hotel</a><br /><br />';
 }
-$stmt = $pdo->query ('SELECT id, name, address, date_from, date_to, user_id, picture, city_id FROM hotels');
+$stmt = $pdo->query ('SELECT id, name, address, date_from, date_to, user_id, picture, city_id FROM hotels ORDER BY id');
 foreach ($stmt as $row)
 {
     $date_from = $row['date_from'];
@@ -46,12 +46,12 @@ foreach ($stmt as $row)
         if (!$result)
         {
             echo '<div class="gumbi">
-                  <a class="button-standard" href="prijava.php?y=' . $row['id'] . '">Prijava na hotel</a>
+                  <a id="button-prijava" class="button-standard" href="prijava.php?y=' . $row['id'] . '">Prijava na hotel</a>
                   </div>';
         }
         else
         {
-            echo '<div id="login-done">Na ta hotel ste že prijavljeni!</div><a class="button-standard" href="odjava.php?y=' . $row['id'] . '">Odjava</a>';
+            echo '<div id="login-done">Na ta hotel ste že prijavljeni!</div><a id="button-odjava" class="button-standard" href="odjava.php?y=' . $row['id'] . '">Odjava</a>';
         }
     }
     echo '</div><br />';

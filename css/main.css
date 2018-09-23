@@ -21,6 +21,7 @@ body
     -webkit-box-shadow: 0px 4px 8px 0px rgba(41,51,57,.5);
     -moz-box-shadow: 0px 4px 8px 0px rgba(41,51,57,.5);
     box-shadow: 0px 4px 8px 0px rgba(41,51,57,.5);
+    padding-top: 5px;
     padding-left: 2px;
     padding-right: 2px;
     margin-bottom: 50px;
@@ -75,6 +76,7 @@ body
     background-color: inherit;
     color: #121212;
     width: 10%;
+    min-width: 200px;
     height: 30px;
     font-size: 18px;
     padding: 5px;
@@ -100,9 +102,16 @@ body
     background-color: #D2D2D0;
     color: #121212;
     width: 5%;
+    min-width: 100px;
     height: 30px;
     margin: 5px;
     font-size: 14px;
+}
+
+.input-submit:hover
+{
+    background-color: #1148a0;
+    color: white;
 }
 
 #login-wrapper
@@ -161,6 +170,7 @@ body
     padding: 15px;
     display: inline-flex;
     justify-content: flex-start;
+    margin-bottom: 15px;
 }
 
 .ime-hotela
@@ -168,6 +178,7 @@ body
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 15px;
+    min-width: 180px;
 }
 
 .button-standard
@@ -220,4 +231,16 @@ th, td
 {
     color: #FFF;
     background-color: #1148a0;
+}
+
+#button-prijava
+{
+    background-color: #15963e;
+}
+
+#button-odjava
+{
+    background-color: #b72c2c;
+    margin-left: 5px;
+    max-height: 25px;
 }

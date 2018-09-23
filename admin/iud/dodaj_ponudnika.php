@@ -59,8 +59,8 @@ $css = '../../css/main.css';
 include '../../x/header.php';
 ?>
     <form method="post">
-        <input class="input-standard" type="text" name="email" placeholder="Epošta"><br />
-        <input class="input-standard" type="password" name="password" placeholder="Geslo"><br />
+        <input class="input-standard" type="text" name="email" placeholder="Epošta" required><br />
+        <input class="input-standard" type="password" name="password" placeholder="Geslo" required><br />
         <input class="button-standard" type="submit" name="submit" value="Dodaj">
     </form>
 <?php

@@ -9,6 +9,7 @@ else if (isset ($_SESSION['username']))
     header ('location:../');
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -20,9 +21,10 @@ else if (isset ($_SESSION['username']))
     </head>
     <body>
         <div id="login-wrapper">
+            <div id="login-subwrapper">
             <form action="checklogin.php" method="POST">
-                <input type="text" name="email" placeholder="E-pošta" class="input-login-standard"><br />
-                <input type="password" name="password" placeholder="Geslo" class="input-login-standard"><br />
+                <input type="text" name="email" placeholder="E-pošta" class="input-login-standard" required><br />
+                <input type="password" name="password" placeholder="Geslo" class="input-login-standard" required><br />
                 <input type="submit" name="submit" value="Prijava" class="input-login-submit">
                 <?php
                 if ((isset ($_SESSION['err'])) && ($_SESSION['err'] != ""))
@@ -32,6 +34,9 @@ else if (isset ($_SESSION['username']))
                 $_SESSION['err'] = "";
                 ?>
             </form>
+            <br />
+            <a href="../registracija/" class="button-standard">Registriraj se</a>
+            </div>
         </div>
     </body>
 </html>

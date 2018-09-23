@@ -42,12 +42,12 @@ else if (isset ($_POST['submit-avatar']))
     $check = getimagesize($_FILES["avatar"]["tmp_name"]);
     if($check !== false)
     {
-        echo 'Datoteka je slika.';
+        //echo 'Datoteka je slika.';
         $uploadOk = 1;
     }
     else
     {
-        echo 'Datoteka ni slika.';
+        //echo 'Datoteka ni slika.';
         $uploadOk = 0;
     }
     if (!file_exists($avatar_path))
@@ -75,18 +75,18 @@ else if (isset ($_POST['submit-avatar']))
 }
 ?>
 <form method="post">
-    <input type="text" name="username" placeholder="Uporabniško ime" class="input-standard">
+    <input type="text" name="username" placeholder="Uporabniško ime" class="input-standard" required>
     <input type="submit" name="submit-username" value="Spremeni" class="input-submit">
 </form>
 <br />
 <form method="post">
-    <input type="password" name="password" placeholder="Geslo" class="input-standard">
+    <input type="password" name="password" placeholder="Geslo" class="input-standard" required>
     <input type="submit" name="submit-password" value="Spremeni" class="input-submit">
 </form>
 <br />
 <form method="post" enctype="multipart/form-data">
     <label class="label-standard" for="avatar">Slika profila</label><br />
-    <input type="file" name="avatar" class="input-standard">
+    <input type="file" name="avatar" class="input-standard" required>
     <input type="submit" name="submit-avatar" value="Spremeni" class="input-submit">
 </form>
 <?php

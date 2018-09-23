@@ -6,7 +6,7 @@ if (isset ($_POST['submit']))
     //Napišem in izvedem UPDATE stavek
     $sql = 'UPDATE hotels SET name = ?, address = ?, date_from = ?, date_to = ?, city_id = ? WHERE id = ?';
     $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['city'],$_GET['y']]);
-    var_dump ($stmt);
+    header ('location:../');
 }
 else if (isset ($_POST['submit-picture']))
 {
@@ -72,8 +72,8 @@ include ('../x/header.php');
         $sql->execute (array ($_GET['y']));
         $result = $sql->fetch(PDO::FETCH_ASSOC);
         //Izpišem obrazec z vpisanimi podatki
-        echo '<input type="text" name="name" placeholder="Ime hotela" value="' . $result['name'] . '" class="input-standard"><br />
-              <input type="text" name="address" placeholder="Naslov hotela" value="' . $result['address'] . '" class="input-standard"><br />
+        echo '<input type="text" name="name" placeholder="Ime hotela" value="' . $result['name'] . '" class="input-standard" required><br />
+              <input type="text" name="address" placeholder="Naslov hotela" value="' . $result['address'] . '" class="input-standard" required><br />
               <select name="city" class="input-standard">';
         $stmt = $pdo->query ('SELECT * FROM cities');
         foreach ($stmt as $row1)
@@ -95,15 +95,15 @@ include ('../x/header.php');
         $dateresult_from = $date_from->format("Y-m-d");
         $dateresult_to = $date_to->format("Y-m-d");
         echo '</select><br />
-              <input type="date" name="date_from" value="' . $dateresult_from . '" class="input-standard"><br />
-              <input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard"><br />';
+              <input type="date" name="date_from" value="' . $dateresult_from . '" class="input-standard" required><br />
+              <input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard" required><br />';
         ?>
         <input class="button-standard" type="submit" name="submit" value="Uredi hotel">
     </form><br />
     <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="name" value="<?php echo $result['name'] ?>">
         <label for="picture">Spremeni sliko</label><br />
-        <input type="file" name="picture" class="input-standard"><br />
+        <input type="file" name="picture" class="input-standard" required><br />
         <input class="button-standard" type="submit" name="submit-picture" value="Uredi sliko hotela">
     </form>
 </body>

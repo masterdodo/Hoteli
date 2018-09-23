@@ -55,8 +55,8 @@ $css = "../css/main.css";
 include ('../x/header.php');
 ?>
     <form method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Ime hotela" class="input-standard"><br />
-        <input type="text" name="address" placeholder="Naslov hotela" class="input-standard"><br />
+        <input type="text" name="name" placeholder="Ime hotela" class="input-standard" required><br />
+        <input type="text" name="address" placeholder="Naslov hotela" class="input-standard" required><br />
         <select name="city" class="input-standard">
         <?php
         include ('../x/dbconn.php');
@@ -67,9 +67,9 @@ include ('../x/header.php');
         }
         ?>
         </select><br />
-        <input type="date" name="date_from" class="input-standard"><br />
-        <input type="date" name="date_to" class="input-standard"><br />
-        <input type="file" name="picture" class="input-standard"><br /><br />
+        <input type="date" name="date_from" class="input-standard" required><br />
+        <input type="date" name="date_to" class="input-standard" required><br />
+        <input type="file" name="picture" class="input-standard" required><br /><br />
         <input class="button-standard" type="submit" name="submit" value="Dodaj hotel">
     </form>
 <?php
