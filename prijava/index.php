@@ -78,7 +78,8 @@ else if (isset ($_SESSION['username']))
                 $sql = $pdo->prepare ('SELECT id, username, password, email, avatar FROM users WHERE email = ?');
                 $sql->execute (array ($pay_load['email']));
                 $result = $sql->fetch();
-
+                echo '<br />';
+                var_dump ($result);
                 if ($result)
                 {
                     $hash = $result['password'];
