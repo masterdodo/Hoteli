@@ -37,13 +37,13 @@ else if (isset ($_SESSION['username']))
             <br />
 
             <?php
-            $client_id = '482990312667-lf56buca4n9gus09mj3scif7h0iqhk5i.apps.googleusercontent.com';
-            $client_secret = '-t3IisdFP5BlMs7KkIIcHLgI';
+            require ("../vendor/autoload.php");
             //Step 1: Enter you google account credentials
             $g_client = new Google_Client();
-            $g_client->setClientId($client_id);
-            $g_client->setClientSecret($client_secret);
-            $g_client->setRedirectUri("https://testing.aristovnik.com/prijava/");
+
+            $g_client->setClientId('482990312667-lf56buca4n9gus09mj3scif7h0iqhk5i.apps.googleusercontent.com');
+            $g_client->setClientSecret('-t3IisdFP5BlMs7KkIIcHLgI');
+            $g_client->setRedirectUri("https://testing.aristovnik.com/hoteli/prijava/index.php");
             $g_client->setScopes(array(
                 "https://www.googleapis.com/auth/userinfo.email",
                 "https://www.googleapis.com/auth/userinfo.profile",
@@ -52,7 +52,7 @@ else if (isset ($_SESSION['username']))
             
             //Step 2 : Create the url
             $auth_url = $g_client->createAuthUrl();
-            echo "<a href='$auth_url'><img id='google_login' width=200 src='./img/btn_google_signin_light_normal_web2x.png'/></a>";
+            echo '<a href="' . $auth_url . '">Sign-in with Google</a>';
             
             //Step 3 : Get the authorization  code
             $code = isset($_GET['code']) ? $_GET['code'] : NULL;
