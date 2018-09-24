@@ -96,7 +96,7 @@ if (isset ($_POST['submit']))
         try
         {
             $sql2->execute (array ($username, $email, $pass_hash, $profile_picture_db_path));
-            header ("Location:../");
+            //header ("Location:../");
         }
         catch ( PDOException $err)
         {
@@ -106,7 +106,7 @@ if (isset ($_POST['submit']))
     //Preverim če je napaka in uporabnika pošljem nazaj na spletno stran s formo in mu izpišem napake
     else if ($error == 1)
     {
-        header ("Location: ./");
+        //header ("Location: ./");
     }
 }
 //Če podatki niso bili poslani ga preusmerim na stran s formo
