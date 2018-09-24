@@ -46,6 +46,87 @@ else if (isset ($_SESSION['username']))
             $auth_url = $g_client->createAuthUrl();
             echo "<a href='$auth_url'>Login Through Google </a>";
 
+            $code = isset($_GET['code']) ? $_GET['code'] : NULL;
+
+            if(isset($code))
+            {
+                try
+                {
+                    $token = $g_client->fetchAccessTokenWithAuthCode($code);
+                    $g_client->setAccessToken($token);
+                }
+                catch (Exception $e)
+                {
+                    echo $e->getMessage();
+                }
+                try
+                {
+                    $pay_load = $g_client->verifyIdToken();
+                }
+                catch (Exception $e)
+                {
+                    echo $e->getMessage();
+                }
+            }
+            else
+            {
+                $pay_load = null;
+            }
+            if(isset($pay_load))
+            {
+                $sql = $pdo->prepare ('SELECT id, username, password, email, avatar FROM users WHERE email = ?');
+                $sql->execute (array ($pay_load['email']));
+                $result = $sql->fetch();
+
+                if ($result)
+                {
+                    $hash = $result['password'];
+                    $user_id = $result['id'];
+                    $username = $result['username'];
+                    $email = $result['email'];
+                    $editor = 0;
+                    $avatar = $result['avatar'];
+
+                    if (password_verify ($pay_load['sub'], $hash))
+                    {
+                        $_SESSION['user_id'] = $user_id;
+                        $_SESSION['username'] = $username;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['editor'] = $editor;
+                        $_SESSION['avatar'] = $avatar;
+                        header ('location:../');
+                    }
+                    else
+                    {
+                        echo 'Napačno geslo.';
+                    }
+                }
+                else
+                {
+                    $token_hash = password_hash ($pay_load['sub'], PASSWORD_DEFAULT);
+                    try
+                    {
+                        $sql = $pdo->prepare ('INSERT INTO users(username, email, password, editor, avatar) VALUES(?, ?, ?, ?, ?)');
+                        $sql->execute (array ($pay_load['email'], $pay_load['email'], $token_hash, 0, '/data/testing.aristovnik.com/www/hoteli/assets/avatars/default/profile.png'));
+                        
+                        $sql = $pdo->prepare ('SELECT id, username, email, avatar FROM users WHERE email = ?');
+                        $sql->execute (array ($pay_load['email']));
+                        $result = $sql->fetch();
+                        
+                        $_SESSION['user_id'] = $result['id'];
+                        $_SESSION['username'] = $result['username'];
+                        $_SESSION['email'] = $result['email'];
+                        $_SESSION['editor'] = 0;
+                        $_SESSION['avatar'] = $result['avatar'];
+
+                        header ('location:../');
+                    }
+                    catch (PDOException $e)
+                    {
+                        echo 'Error: ' . $e->getMessage();
+                    }
+                }
+            }
             ?>
             <a href="../registracija/" class="button-standard">Registriraj se</a>
             </div>
