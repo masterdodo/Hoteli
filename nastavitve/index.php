@@ -34,10 +34,10 @@ else if (isset ($_POST['submit-password']))
 else if (isset ($_POST['submit-avatar']))
 {
     $username = $_SESSION['username'];
-    $avatar_path = "../assets/avatars/" . $username . "/";
+    $avatar_path = "../assets/avatars/";
     $target_file = $avatar_path . basename($_FILES["avatar"]["name"]);
     $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $profile_picture_db_path = "/Hoteli/assets/avatars/" . $username . "/profile" . $ext;
+    $profile_picture_db_path = "https://testing.aristovnik.com/hoteli/assets/avatars/" . $username . $ext;
     $uploadOk = 1;
     $check = getimagesize($_FILES["avatar"]["tmp_name"]);
     if($check !== false)
@@ -50,16 +50,9 @@ else if (isset ($_POST['submit-avatar']))
         //echo 'Datoteka ni slika.';
         $uploadOk = 0;
     }
-    if (!file_exists($avatar_path))
-    {
-        if (!mkdir($avatar_path, 0755, true))
-        {
-            die ('Failed to create folder...');
-        }
-    }
     if ($uploadOk == 1)
     {
-        if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . "profile" . $ext))
+        if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . $username . $ext))
         {
             echo 'Uspešno!';
             $sql = $pdo->prepare ('UPDATE users SET avatar = ? WHERE id = ?');

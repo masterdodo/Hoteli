@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE)
 }
 if (!isset ($_SESSION['username']))
 {
-    header("location:/hoteli/prijava/");
+    header("location:https://testing.aristovnik.com/hoteli/prijava/");
     exit;
 }
 ?>

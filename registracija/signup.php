@@ -55,10 +55,10 @@ if (isset ($_POST['submit']))
     {
         if (isset($_FILES['userfile']) && $_FILES['userfile']['size'] > 0)
         {
-            $avatar_path = "../assets/avatars/" . $username . "/";
+            $avatar_path = "../assets/avatars/";
             $target_file = $avatar_path . basename($_FILES["avatar"]["name"]);
             $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            $profile_picture_db_path = "/Hoteli/assets/avatars/" . $username . "/profile" . $ext;
+            $profile_picture_db_path = "https://testing.aristovnik.com/hoteli/assets/avatars/" . $username . $ext;
             $uploadOk = 1;
             $check = getimagesize($_FILES["avatar"]["tmp_name"]);
             if($check !== false)
@@ -71,13 +71,9 @@ if (isset ($_POST['submit']))
                 echo 'Datoteka ni slika.';
                 $uploadOk = 0;
             }
-            if (!file_exists($avatar_path))
-            {
-                mkdir($avatar_path, 0777, true);
-            }
             if ($uploadOk == 1)
             {
-                if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . "profile" . $ext))
+                if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . $username . $ext))
                 {
                     echo 'Uspešno!';
                 }
@@ -93,7 +89,7 @@ if (isset ($_POST['submit']))
         }
         else
         {
-            $profile_picture_db_path = '/Hoteli/assets/avatars/default/profile.png';
+            $profile_picture_db_path = 'https://testing.aristovnik.com/hoteli/assets/avatars/default/profile.png';
         }
         $pass_hash = password_hash($password, PASSWORD_DEFAULT);
         $sql2 = $pdo->prepare ("INSERT INTO users(username, email, password, avatar) VALUES (?,?,?,?)");
