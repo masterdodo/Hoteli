@@ -42,12 +42,12 @@ else if (isset ($_POST['submit-avatar']))
     $check = getimagesize($_FILES["avatar"]["tmp_name"]);
     if($check !== false)
     {
-        //echo 'Datoteka je slika.';
+        echo 'Datoteka je slika.';
         $uploadOk = 1;
     }
     else
     {
-        //echo 'Datoteka ni slika.';
+        echo 'Datoteka ni slika.';
         $uploadOk = 0;
     }
     if ($uploadOk == 1)
