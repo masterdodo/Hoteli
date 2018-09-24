@@ -98,7 +98,7 @@ else if (isset ($_SESSION['username']))
                         $_SESSION['email'] = $email;
                         $_SESSION['editor'] = $editor;
                         $_SESSION['avatar'] = $avatar;
-                        header ('location:../');
+                        //header ('location:../');
                     }
                     else
                     {
@@ -123,7 +123,7 @@ else if (isset ($_SESSION['username']))
                         $_SESSION['editor'] = 0;
                         $_SESSION['avatar'] = $result['avatar'];
 
-                        header ('location:../');
+                        //header ('location:../');
                     }
                     catch (PDOException $e)
                     {
