@@ -80,6 +80,7 @@ else if (isset ($_SESSION['username']))
                 $result = $sql->fetch();
                 if ($result)
                 {
+                    //Prijava
                     $hash = $result['password'];
                     $user_id = $result['id'];
                     $username = $result['username'];
@@ -94,6 +95,7 @@ else if (isset ($_SESSION['username']))
                         $_SESSION['email'] = $email;
                         $_SESSION['editor'] = $editor;
                         $_SESSION['avatar'] = $avatar;
+                        $_SESSION['google-user'] = 1;
                         header ('location:../');
                     }
                     else
@@ -103,6 +105,7 @@ else if (isset ($_SESSION['username']))
                 }
                 else
                 {
+                    //Registracija
                     $token_hash = password_hash ($pay_load['sub'], PASSWORD_DEFAULT);
                     try
                     {
@@ -118,6 +121,7 @@ else if (isset ($_SESSION['username']))
                         $_SESSION['email'] = $result['email'];
                         $_SESSION['editor'] = 0;
                         $_SESSION['avatar'] = $result['avatar'];
+                        $_SESSION['google-user'] = 1;
 
                         header ('location:../');
                     }

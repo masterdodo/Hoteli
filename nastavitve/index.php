@@ -78,8 +78,8 @@ else if (isset ($_POST['submit-avatar']))
 </form>
 <br />
 <form method="post">
-    <input type="password" name="password" placeholder="Geslo" class="input-standard" required>
-    <input type="submit" name="submit-password" value="Spremeni" class="input-submit">
+    <input type="password" name="password" placeholder="Geslo" class="input-standard" required <?php if (isset ($_SESSION['google-user'])){ echo 'disabled';} ?>>
+    <input type="submit" name="submit-password" value="Spremeni" class="input-submit" <?php if (isset ($_SESSION['google-user'])){ echo 'disabled';} ?>>
 </form>
 <br />
 <form method="post" enctype="multipart/form-data">
