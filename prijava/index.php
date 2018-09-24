@@ -45,10 +45,10 @@ else if (isset ($_SESSION['username']))
             $g_client->setScopes("email");
             
             $auth_url = $g_client->createAuthUrl();
-            echo "<a href='$auth_url'>Login Through Google </a>";
+            echo "<a href='$auth_url'><img src='../google-buttons/btn_google_signin_dark_normal_web.png'></a>";
 
             $code = isset($_GET['code']) ? $_GET['code'] : NULL;
-            
+
             if(isset($code))
             {
                 try
