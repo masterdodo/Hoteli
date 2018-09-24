@@ -7,10 +7,10 @@ if (isset ($_POST['submit']))
     //Urejanje slike
     $username = $_SESSION['username'];
     $hotel_name = $_POST['name'];
-    $picture_path = "../assets/hotels/" . $username . "/" . $hotel_name . "/";
+    $picture_path = "../assets/hotels/";
     $target_file = $picture_path . basename($_FILES["picture"]["name"]);
     $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $picture_db_path = "/Hoteli/assets/hotels/" . $username . "/" . $hotel_name . "/picture" . $ext;
+    $picture_db_path = "https://testing.aristovnik.com/hoteli/assets/hotels/" . $username . $hotel_name . $ext;
     $uploadOk = 1;
     $check = getimagesize($_FILES["picture"]["tmp_name"]);
     if($check !== false)
@@ -23,13 +23,9 @@ if (isset ($_POST['submit']))
         echo 'Datoteka ni slika.';
         $uploadOk = 0;
     }
-    if (!file_exists($picture_path))
-    {
-        mkdir($picture_path, 0777, true);
-    }
     if ($uploadOk == 1)
     {
-        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $picture_path . "picture" . $ext))
+        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $picture_path . $username . $hotel_name . $ext))
         {
             //Napišem in izvedem INSERT stavek
             echo 'Uspešno!';
