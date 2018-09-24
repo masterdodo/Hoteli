@@ -52,6 +52,7 @@ else if (isset ($_POST['submit-avatar']))
     }
     if ($uploadOk == 1)
     {
+        error_reporting (E_ALL);
         if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $avatar_path . $username . $ext))
         {
             echo 'Uspešno!';
