@@ -52,7 +52,10 @@ else if (isset ($_POST['submit-avatar']))
     }
     if (!file_exists($avatar_path))
     {
-        mkdir($avatar_path, 0777, true);
+        if (!mkdir($avatar_path, 0755, true))
+        {
+            die ('Failed to create folder...');
+        }
     }
     if ($uploadOk == 1)
     {
