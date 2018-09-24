@@ -35,6 +35,7 @@ else if (isset ($_SESSION['username']))
             <br />
 
             <?php require ('../vendor/autoload.php');
+            include ('../x/dbconn.php');
             
             $g_client = new Google_Client();
 
