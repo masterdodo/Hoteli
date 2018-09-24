@@ -111,13 +111,12 @@ else if (isset ($_SESSION['username']))
                     $token_hash = password_hash ($pay_load['sub'], PASSWORD_DEFAULT);
                     try
                     {
-                        echo $token_hash;
-                        $sql = $pdo->prepare ('INSERT INTO users(username, email, password, editor, avatar) VALUES(?, ?, ?, ?, ?)');
+                        $sql = $pdo->prepare ('INSERT INTO users(username, email, password, edit_hotels, avatar) VALUES(?, ?, ?, ?, ?)');
                         $sql->execute (array ($pay_load['email'], $pay_load['email'], $token_hash, 0, '/data/testing.aristovnik.com/www/hoteli/assets/avatars/default/profile.png'));
                         
-                        $sql = $pdo->prepare ('SELECT id, username, email, avatar FROM users WHERE email = ?');
-                        $sql->execute (array ($pay_load['email']));
-                        $result = $sql->fetch();
+                        $sql1 = $pdo->prepare ('SELECT id, username, email, avatar FROM users WHERE email = ?');
+                        $sql1->execute (array ($pay_load['email']));
+                        $result1 = $sql1->fetch();
                         
                         $_SESSION['user_id'] = $result['id'];
                         $_SESSION['username'] = $result['username'];
