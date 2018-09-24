@@ -107,7 +107,7 @@ else if (isset ($_SESSION['username']))
                     try
                     {
                         $sql = $pdo->prepare ('INSERT INTO users(username, email, password, edit_hotels, avatar) VALUES(?, ?, ?, ?, ?)');
-                        $sql->execute (array ($pay_load['email'], $pay_load['email'], $token_hash, 0, '/data/testing.aristovnik.com/www/hoteli/assets/avatars/default/profile.png'));
+                        $sql->execute (array ($pay_load['email'], $pay_load['email'], $token_hash, 0, 'https://testing.aristovnik.com/hoteli/assets/avatars/default/profile.png'));
                         
                         $sql1 = $pdo->prepare ('SELECT id, username, email, avatar FROM users WHERE email = ?');
                         $sql1->execute (array ($pay_load['email']));
