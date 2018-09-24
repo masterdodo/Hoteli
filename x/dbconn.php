@@ -1,8 +1,8 @@
 <?php
-$host = '127.0.0.1';
+$host = 'localhost';
 $db   = 'hoteli';
-$user = 'root';
-$pass = '';
+$user = 'phpmyadmin';
+$pass = '1W2E3Radmin';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
