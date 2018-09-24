@@ -8,7 +8,7 @@ else if (isset ($_SESSION['username']))
 {
     header ('location:../');
 }
-rename ('../assets/avatars/default/picture.png', '../assets/avatars/default/pic.png');
+$ren = rename ('../assets/avatars/default/picture.png', '../assets/avatars/default/pic.png');
 ?>
 <!DOCTYPE html>
 <html>
