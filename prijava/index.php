@@ -47,7 +47,7 @@ else if (isset ($_SESSION['username']))
             echo "<a href='$auth_url'>Login Through Google </a>";
 
             $code = isset($_GET['code']) ? $_GET['code'] : NULL;
-
+            var_dump ($code);
             if(isset($code))
             {
                 try
