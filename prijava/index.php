@@ -75,6 +75,7 @@ else if (isset ($_SESSION['username']))
             var_dump ($pay_load);
             if(isset($pay_load))
             {
+                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
                 $sql = $pdo->prepare ('SELECT id, username, password, email, avatar FROM users WHERE email = ?');
                 $sql->execute (array ($pay_load['email']));
                 $result = $sql->fetch();
@@ -128,6 +129,10 @@ else if (isset ($_SESSION['username']))
                         echo 'Error: ' . $e->getMessage();
                     }
                 }
+            }
+            else
+            {
+                echo '???????????????????????????????';
             }
             ?>
             <a href="../registracija/" class="button-standard">Registriraj se</a>
