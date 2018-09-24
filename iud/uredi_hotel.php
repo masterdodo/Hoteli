@@ -32,18 +32,14 @@ else if (isset ($_POST['submit-picture']))
         echo 'Datoteka ni slika.';
         $uploadOk = 0;
     }
-    if (!file_exists($picture_path))
-    {
-        mkdir($picture_path, 0777, true);
-    }
     if ($uploadOk == 1)
     {
         if (move_uploaded_file($_FILES["picture"]["tmp_name"], $picture_path . $username . $hotel_name . $ext))
         {
-            //Napišem in izvedem INSERT stavek
+            //Napišem in izvedem UPDATE stavek
             echo 'Uspešno!';
-            $sql = 'UPDATE hotels SET picture = ?';
-            $stmt = $pdo->prepare ($sql)->execute ([$picture_db_path]);
+            $sql = 'UPDATE hotels SET picture = ? WHERE id = ?';
+            $stmt = $pdo->prepare ($sql)->execute ([$picture_db_path, $_GET['y']]);
             header ('location:../');
             exit;
         }
