@@ -25,7 +25,9 @@ if (isset ($_POST['submit']))
     }
     if ($uploadOk == 1)
     {
-        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $picture_path . $username . $hotel_name . $ext))
+        $newfile = $picture_path . $username . $hotel_name . $ext;
+        $newfile = str_replace (' ', '', $newfile);
+        if (move_uploaded_file($_FILES["picture"]["tmp_name"], $newfile))
         {
             //Napišem in izvedem INSERT stavek
             echo 'Uspešno!';
