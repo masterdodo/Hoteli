@@ -15,8 +15,6 @@ else if (isset ($_SESSION['username']))
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prijava</title>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <meta name="google-signin-client_id" content="888956527514-q5opl62umv8bubmcsbaktbrhanm59p3f.apps.googleusercontent.com">
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
@@ -37,7 +35,7 @@ else if (isset ($_SESSION['username']))
             <br />
 
             <?php
-<<<<<<< HEAD
+            /*
             require ("../vendor/autoload.php");
             //Step 1: Enter you google account credentials
             $g_client = new Google_Client();
@@ -45,15 +43,6 @@ else if (isset ($_SESSION['username']))
             $g_client->setClientId('482990312667-lf56buca4n9gus09mj3scif7h0iqhk5i.apps.googleusercontent.com');
             $g_client->setClientSecret('-t3IisdFP5BlMs7KkIIcHLgI');
             $g_client->setRedirectUri("https://testing.aristovnik.com/hoteli/prijava/index.php");
-=======
-            $client_id ='482990312667-lf56buca4n9gus09mj3scif7h0iqhk5i.apps.googleusercontent.com';
-            $client_secret = '-t3IisdFP5BlMs7KkIIcHLgI';
-            //Step 1: Enter you google account credentials
-            $g_client = new Google_Client();
-            $g_client->setClientId('482990312667-lf56buca4n9gus09mj3scif7h0iqhk5i.apps.googleusercontent.com');
-            $g_client->setClientSecret('-t3IisdFP5BlMs7KkIIcHLgI');
-            $g_client->setRedirectUri("https://testing.aristovnik.com/prijava/index.php");
->>>>>>> 4abb0e2f413b4e8e6345a40d619dcc551afafdd2
             $g_client->setScopes(array(
                 "https://www.googleapis.com/auth/userinfo.email",
                 "https://www.googleapis.com/auth/userinfo.profile",
@@ -62,11 +51,7 @@ else if (isset ($_SESSION['username']))
             
             //Step 2 : Create the url
             $auth_url = $g_client->createAuthUrl();
-<<<<<<< HEAD
             echo '<a href="' . $auth_url . '">Sign-in with Google</a>';
-=======
-            echo "<a href='$auth_url'>Sign-In with Google</a>";
->>>>>>> 4abb0e2f413b4e8e6345a40d619dcc551afafdd2
             
             //Step 3 : Get the authorization  code
             $code = isset($_GET['code']) ? $_GET['code'] : NULL;
@@ -130,10 +115,8 @@ else if (isset ($_SESSION['username']))
                     }
                 
                 }
-            }
+            }*/
             ?>
-
-            <br />
             <a href="../registracija/" class="button-standard">Registriraj se</a>
             </div>
         </div>
