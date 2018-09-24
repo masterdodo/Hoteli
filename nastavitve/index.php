@@ -34,7 +34,7 @@ else if (isset ($_POST['submit-password']))
 else if (isset ($_POST['submit-avatar']))
 {
     $username = $_SESSION['username'];
-    $avatar_path = "../assets/avatars/";
+    $avatar_path = "/data/testing.aristovnik.com/www/hoteli/assets/avatars/";
     $target_file = $avatar_path . basename($_FILES["avatar"]["name"]);
     $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     $profile_picture_db_path = "https://testing.aristovnik.com/hoteli/assets/avatars/" . $username . $ext;
