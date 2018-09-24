@@ -10,7 +10,9 @@ if (isset ($_POST['submit']))
     $picture_path = "../assets/hotels/";
     $target_file = $picture_path . basename($_FILES["picture"]["name"]);
     $ext = '.' . strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $picture_db_path = "https://testing.aristovnik.com/hoteli/assets/hotels/" . $username . $hotel_name . $ext;
+    $newfile1 = $username . $hotel_name . $ext;
+    $newfile1 = str_replace (' ', '', $newfile1);
+    $picture_db_path = "https://testing.aristovnik.com/hoteli/assets/hotels/" . $newfile1;
     $uploadOk = 1;
     $check = getimagesize($_FILES["picture"]["tmp_name"]);
     if($check !== false)
