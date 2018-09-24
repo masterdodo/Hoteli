@@ -61,6 +61,7 @@ else if (isset ($_POST['submit-avatar']))
         }
         else
         {
+            echo $avatar_path . $username . $ext;
             echo 'Neuspešno!';
         }
     }
