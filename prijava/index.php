@@ -72,6 +72,7 @@ else if (isset ($_SESSION['username']))
             {
                 $pay_load = null;
             }
+            var_dump ($pay_load);
             if(isset($pay_load))
             {
                 $sql = $pdo->prepare ('SELECT id, username, password, email, avatar FROM users WHERE email = ?');
