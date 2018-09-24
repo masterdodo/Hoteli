@@ -107,9 +107,11 @@ else if (isset ($_SESSION['username']))
                 }
                 else
                 {
+                    echo '1234567890';
                     $token_hash = password_hash ($pay_load['sub'], PASSWORD_DEFAULT);
                     try
                     {
+                        echo $token_hash;
                         $sql = $pdo->prepare ('INSERT INTO users(username, email, password, editor, avatar) VALUES(?, ?, ?, ?, ?)');
                         $sql->execute (array ($pay_load['email'], $pay_load['email'], $token_hash, 0, '/data/testing.aristovnik.com/www/hoteli/assets/avatars/default/profile.png'));
                         
