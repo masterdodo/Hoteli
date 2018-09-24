@@ -48,7 +48,7 @@ else if (isset ($_SESSION['username']))
             echo "<a href='$auth_url'>Login Through Google </a>";
 
             $code = isset($_GET['code']) ? $_GET['code'] : NULL;
-            var_dump ($code);
+            
             if(isset($code))
             {
                 try
@@ -73,15 +73,11 @@ else if (isset ($_SESSION['username']))
             {
                 $pay_load = null;
             }
-            var_dump ($pay_load);
             if(isset($pay_load))
             {
-                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
                 $sql = $pdo->prepare ('SELECT id, username, password, email, avatar FROM users WHERE email = ?');
                 $sql->execute (array ($pay_load['email']));
                 $result = $sql->fetch();
-                echo '<br />';
-                var_dump ($result);
                 if ($result)
                 {
                     $hash = $result['password'];
@@ -98,7 +94,7 @@ else if (isset ($_SESSION['username']))
                         $_SESSION['email'] = $email;
                         $_SESSION['editor'] = $editor;
                         $_SESSION['avatar'] = $avatar;
-                        //header ('location:../');
+                        header ('location:../');
                     }
                     else
                     {
@@ -107,7 +103,6 @@ else if (isset ($_SESSION['username']))
                 }
                 else
                 {
-                    echo '1234567890';
                     $token_hash = password_hash ($pay_load['sub'], PASSWORD_DEFAULT);
                     try
                     {
@@ -124,7 +119,7 @@ else if (isset ($_SESSION['username']))
                         $_SESSION['editor'] = 0;
                         $_SESSION['avatar'] = $result['avatar'];
 
-                        //header ('location:../');
+                        header ('location:../');
                     }
                     catch (PDOException $e)
                     {
@@ -132,11 +127,8 @@ else if (isset ($_SESSION['username']))
                     }
                 }
             }
-            else
-            {
-                echo '???????????????????????????????';
-            }
             ?>
+            <br />
             <a href="../registracija/" class="button-standard">Registriraj se</a>
             </div>
         </div>
