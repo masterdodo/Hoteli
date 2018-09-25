@@ -1,7 +1,12 @@
 # Hoteli
 V tej datoteki bom predstavil spletno aplikacijo te [GitHub](https://github.com) strani.
 <br><br>
-Ta aplikacija omogoča vnašanje hotelov in prijavo na njih.
+Ta aplikacija omogoča vnašanje hotelov in prijavo na njih.<br>
+### Kazalo:
+[Prijava in registracija](#prijava-in-registracija)<br>
+[Administrator](#administrator)<br>
+[Uporabniki](#uporabniki)<br>
+[Upravljanje hotelov](#upravljanje-hotelov)
 ## Prijava in registracija
 ### 1. Registracija
 V spletno aplikacijo se lahko prijaviš na dva načina:<br>
@@ -37,5 +42,7 @@ Pri upravljanu hotelov obstajajo tri funkcije:
 - Dodajanje
 - Urejanje
 - Brisanje
-<br>Za dodajanje in urejanje je stvar podobna.<br>
+<br>
+Za dodajanje in urejanje je stvar podobna.<br>
 Prikaže se nam obrazec, kjer imamo označene vse atribute, ki jih moramo vpisati, ko jih vpišemo/uredimo se to shrani v podatkovno bazo. Te funkcije pa se nahajajo v /iud . <br>
+
