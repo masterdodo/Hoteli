@@ -4,8 +4,8 @@ if (isset ($_POST['submit']))
     //Zahtevam povezavo na bazo
     include ('../x/dbconn.php');
     //Napišem in izvedem UPDATE stavek
-    $sql = 'UPDATE hotels SET name = ?, address = ?, date_from = ?, date_to = ?, city_id = ? WHERE id = ?';
-    $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['city'],$_GET['y']]);
+    $sql = 'UPDATE hotels SET name = ?, address = ?, date_from = ?, date_to = ?, all_places = ?, city_id = ? WHERE id = ?';
+    $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['all_places'],$_POST['city'],$_GET['y']]);
     header ('location:../');
 }
 else if (isset ($_POST['submit-picture']))
@@ -88,6 +88,7 @@ include ('../x/header.php');
             }
             echo '<option ' . $selected . ' value="' . $row1['id'] . '">' . $row1['name'] . '</option>';
         }
+        echo '<input type="numbers" name="all_places" value="' . $row['all_places'] . '" class="input-standard" required><br />';
         $date_from = $result['date_from'];
         $date_to = $result['date_to'];
         $date_from = new DateTime($date_from);
@@ -102,7 +103,7 @@ include ('../x/header.php');
     </form><br />
     <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="name" value="<?php echo $result['name'] ?>">
-        <label for="picture">Spremeni sliko</label><br />
+        <label for="picture">Spremeni sliko hotela:</label><br />
         <input type="file" name="picture" class="input-standard" required><br />
         <input class="button-standard" type="submit" name="submit-picture" value="Uredi sliko hotela">
     </form>
