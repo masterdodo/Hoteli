@@ -88,7 +88,6 @@ include ('../x/header.php');
             }
             echo '<option ' . $selected . ' value="' . $row1['id'] . '">' . $row1['name'] . '</option>';
         }
-        echo '<br /><input type="numbers" name="all_places" value="' . $result['all_places'] . '" class="input-standard" required><br />';
         $date_from = $result['date_from'];
         $date_to = $result['date_to'];
         $date_from = new DateTime($date_from);
@@ -98,6 +97,7 @@ include ('../x/header.php');
         echo '</select><br />
               <input type="date" name="date_from" value="' . $dateresult_from . '" class="input-standard" required><br />
               <input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard" required><br />';
+              echo '<input type="numbers" name="all_places" value="' . $result['all_places'] . '" class="input-standard" required><br />';
         ?>
         <input class="button-standard" type="submit" name="submit" value="Uredi hotel">
     </form><br />
