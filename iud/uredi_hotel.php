@@ -88,7 +88,7 @@ include ('../x/header.php');
             }
             echo '<option ' . $selected . ' value="' . $row1['id'] . '">' . $row1['name'] . '</option>';
         }
-        echo '<input type="numbers" name="all_places" value="' . $row['all_places'] . '" class="input-standard" required><br />';
+        echo '<br /><input type="numbers" name="all_places" value="' . $result['all_places'] . '" class="input-standard" required><br />';
         $date_from = $result['date_from'];
         $date_to = $result['date_to'];
         $date_from = new DateTime($date_from);
