@@ -13,6 +13,7 @@
                     <input class="input-login-standard" type="text" name="email" placeholder="Epošta" required><br />
                     <input class="input-login-standard" type="text" name="username" placeholder="Uporabniško ime" required><br />
                     <input class="input-login-standard" type="password" name="password" placeholder="Geslo" required><br />
+                    <input class="input-login-standard" type="password" name="passwordcheck" placeholder="Potrditev gesla" required><br />
                     <input class="input-login-standard" type="file" name="avatar"><br />
                     <input class="input-login-submit" type="submit" name="submit" value="Registracija">
                     <?php
