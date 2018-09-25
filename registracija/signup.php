@@ -9,6 +9,7 @@ if (isset ($_POST['submit']))
     $email = trim ($_POST['email']);
     $username = trim ($_POST['username']);
     $password = trim ($_POST['password']);
+    $password_check = trim ($_POST['passwordcheck']);
 
     //V spremenljivko result si zabeležim če uporabniško ime že obstaja
     $sql = $pdo->prepare ("SELECT * FROM users WHERE username = ?");
@@ -47,6 +48,12 @@ if (isset ($_POST['submit']))
     if (strlen ($password) < 8)
     {
         $_SESSION['err'] .= "Geslo mora biti večje od 8 znakov.";
+        $error = 1;
+    }
+    //Preverim če se geslo ujema
+    if ($password != $password_check)
+    {
+        $_SESSION['err'] .= "Gesli se ne ujemata.";
         $error = 1;
     }
 
