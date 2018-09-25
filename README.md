@@ -46,3 +46,6 @@ Pri upravljanu hotelov obstajajo tri funkcije:
 Za dodajanje in urejanje je stvar podobna.<br>
 Prikaže se nam obrazec, kjer imamo označene vse atribute, ki jih moramo vpisati, ko jih vpišemo/uredimo se to shrani v podatkovno bazo. Te funkcije pa se nahajajo v /iud . <br>
 
+### Slika baze:
+
+![SLIKA-BAZE](https://testing.aristovnik.com/hoteli/baza_model/baza-image.png)
