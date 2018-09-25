@@ -9,7 +9,7 @@ if ($_SESSION['editor'] == 1)
     //Prikažem gumb za dodajanje hotelov
     echo '<a href="iud/nov_hotel.php" class="button-standard">Nov hotel</a><br /><br />';
 }
-$stmt = $pdo->query ('SELECT id, name, address, date_from, date_to, user_id, picture, city_id FROM hotels ORDER BY id');
+$stmt = $pdo->query ('SELECT id, name, address, date_from, date_to, filled_places, all_places, user_id, picture, city_id FROM hotels ORDER BY id');
 foreach ($stmt as $row)
 {
     $date_from = $row['date_from'];
@@ -28,6 +28,7 @@ foreach ($stmt as $row)
           <div class="hotel-content">
           <div class="ime-hotela">' . $row['name'] . '</div>
           <div class="naslov-hotela">' . $row['address'] . ', ' . $city . '</div>
+          <div>' . $row['filled_places'] . '/' . $row['all_places'] . '</div>
           <div class="datum"><b>Od:</b> ' . $dateresult_from . ' <b>Do:</b> ' . $dateresult_to . '</div>
           </div>';
 
@@ -45,9 +46,15 @@ foreach ($stmt as $row)
         $result = $sql->fetch();
         if (!$result)
         {
-            echo '<div class="gumbi">
-                  <a id="button-prijava" class="button-standard" href="prijava.php?y=' . $row['id'] . '">Prijava na hotel</a>
-                  </div>';
+            echo '<div class="gumbi">';
+            $sql_prijava = $pdo->prepare("SELECT filled_places, all_places FROM hotels WHERE id = ?");
+            $sql_prijava->execute([$row['id']]);
+            $result_prijava = $sql_prijava->fetch();
+            if ($result_prijava['filled_places'] != $result_prijava['all_places'])
+            {
+            echo '<a id="button-prijava" class="button-standard" href="prijava.php?y=' . $row['id'] . '">Prijava na hotel</a>';
+            }
+            echo '</div>';
         }
         else
         {
