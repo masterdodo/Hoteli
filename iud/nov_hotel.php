@@ -67,9 +67,9 @@ include ('../x/header.php');
         }
         ?>
         </select><br />
-        <input type="numbers" name="all_places" class="input-standard" required><br />
-        <input type="date" name="date_from" class="input-standard" required><br />
-        <input type="date" name="date_to" class="input-standard" required><br />
+        <input type="numbers" name="all_places" class="input-standard" placeholder="Število prostih mest" required><br />
+        <label for="date_from">Datum prihoda:</label><input type="date" name="date_from" class="input-standard" required><br />
+        <label for="date_to">Datum odhoda:</label><input type="date" name="date_to" class="input-standard" required><br />
         <input type="file" name="picture" class="input-standard" required><br /><br />
         <input class="button-standard" type="submit" name="submit" value="Dodaj hotel">
     </form>
