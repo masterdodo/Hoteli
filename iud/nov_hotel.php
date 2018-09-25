@@ -33,8 +33,8 @@ if (isset ($_POST['submit']))
         {
             //Napišem in izvedem INSERT stavek
             echo 'Uspešno!';
-            $sql = 'INSERT INTO hotels(name, address, date_from, date_to, filled_places, all_places city_id, user_id, picture) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
-            $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],$_POST['filled_places'],$_POST['all_places'],$_POST['city'],$_SESSION['user_id'], $picture_db_path]);
+            $sql = 'INSERT INTO hotels(name, address, date_from, date_to, filled_places, all_places, city_id, user_id, picture) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            $stmt = $pdo->prepare ($sql)->execute ([$_POST['name'],$_POST['address'],$_POST['date_from'],$_POST['date_to'],0,$_POST['all_places'],$_POST['city'],$_SESSION['user_id'], $picture_db_path]);
             header ('location:../');
             exit;
         }
@@ -67,7 +67,6 @@ include ('../x/header.php');
         }
         ?>
         </select><br />
-        <input type="numbers" name="filled_places" class="input-standard" required><br />
         <input type="numbers" name="all_places" class="input-standard" required><br />
         <input type="date" name="date_from" class="input-standard" required><br />
         <input type="date" name="date_to" class="input-standard" required><br />
