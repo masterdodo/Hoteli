@@ -116,11 +116,11 @@ else if (isset ($_SESSION['username']))
                         $sql1->execute (array ($pay_load['email']));
                         $result1 = $sql1->fetch();
                         
-                        $_SESSION['user_id'] = $result['id'];
-                        $_SESSION['username'] = $result['username'];
-                        $_SESSION['email'] = $result['email'];
+                        $_SESSION['user_id'] = $result1['id'];
+                        $_SESSION['username'] = $result1['username'];
+                        $_SESSION['email'] = $result1['email'];
                         $_SESSION['editor'] = 0;
-                        $_SESSION['avatar'] = $result['avatar'];
+                        $_SESSION['avatar'] = $result1['avatar'];
                         $_SESSION['google-user'] = 1;
 
                         header ('location:../');
