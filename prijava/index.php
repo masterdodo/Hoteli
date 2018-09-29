@@ -26,8 +26,8 @@ else if (isset ($_SESSION['username']))
                 <input id="input-prijava-email" type="text" name="email" placeholder="E-pošta" class="input-login-standard" onkeyup="checkInputOnKeyUp(this.value)" required><br />
                 <input id="input-prijava-pass" type="password" name="password" placeholder="Geslo" class="input-login-standard" onkeyup="checkInputOnKeyUpPass(this.value)" required><br />
                 <input type="submit" name="submit" value="Prijava" class="input-login-submit">
-                    <div class="errors" id="error-email"></div>
-                    <div class="errors" id="error-pass"></div>
+                <div class="errors" id="error-email"></div>
+                <div class="errors" id="error-pass"></div>
                 <?php
                 if ((isset ($_SESSION['err'])) && ($_SESSION['err'] != ""))
                 {
