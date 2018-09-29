@@ -6,7 +6,7 @@ function checkInputOnKeyUp (x)
         document.querySelector('#error-email').innerHTML = "";
     } else
     {
-        if (!document.querySelector('#error-email').innerHTML == "Napačna e-pošta.")
+        if (document.querySelector('#error-email').innerHTML == "")
         {
         setTimeout(function()
         {
@@ -20,7 +20,7 @@ function checkInputOnKeyUpPass (x)
 {
     if (x.length < 8)
     {
-        if (!document.querySelector('#error-pass').innerHTML == "Geslo je prekratko.")
+        if (document.querySelector('#error-pass').innerHTML == "")
         {
         setTimeout(function()
         {
