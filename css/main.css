@@ -244,3 +244,12 @@ th, td
     margin-left: 5px;
     max-height: 25px;
 }
+
+.errors
+{
+    margin: 3px;
+    margin-bottom: 10px;
+    border: 0;
+    border: solid 2px #efc023;
+    font-family: 'Open sans', sans-serif;
+}
