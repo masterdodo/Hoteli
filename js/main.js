@@ -1,6 +1,7 @@
 function checkInputOnKeyUp (x)
 {
-    var field = document.querySelector('[name="email"]').value;
+    console.log(x);
+    var field = document.querySelector(x).value;
     console.log(field);
     if( /(.+)@(.+){2,}\.(.+){2,}/.test(field) )
     {
