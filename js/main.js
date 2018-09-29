@@ -19,7 +19,7 @@ function checkInputOnKeyUpPass (x)
 {
     if (x.length < 8)
     {
-        document.querySelector('#error-pass').innerHTML += "\nGeslo je prekratko.";
+        document.querySelector('#error-pass').innerHTML = "Geslo je prekratko.";
     }
     else
     {
