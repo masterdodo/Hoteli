@@ -17,6 +17,7 @@ if (!isset ($_SESSION['username']))
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
         <?php 
         echo '<link rel="stylesheet" href="' . $css . '">';
+        echo '<script src="' . $js . '"></script>';
         echo '<title>' . $title . '</title>'; ?>
     </head>
     <body>
