@@ -262,7 +262,17 @@ th, td
     display: none;
 }
 
+#error-user
+{
+    display: none;
+}
+
 #error-pass
+{
+    display: none;
+}
+
+#error-pass-check
 {
     display: none;
 }
