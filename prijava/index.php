@@ -22,7 +22,7 @@ else if (isset ($_SESSION['username']))
         <div id="login-wrapper">
             <div id="login-subwrapper">
             <form action="checklogin.php" method="POST">
-                <input id="input-prijava-email" type="text" name="email" placeholder="E-pošta" class="input-login-standard" onkeyup="checkInputOnKeyUp(this.id)" required><br />
+                <input id="input-prijava-email" type="text" name="email" placeholder="E-pošta" class="input-login-standard" onkeyup="checkInputOnKeyUp(this.value)" required><br />
                 <input type="password" name="password" placeholder="Geslo" class="input-login-standard" required><br />
                 <input type="submit" name="submit" value="Prijava" class="input-login-submit">
                 <?php
