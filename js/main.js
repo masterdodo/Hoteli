@@ -4,13 +4,25 @@ function checkInputOnKeyUp (x)
     {
         setTimeout(function()
         {
-            document.querySelector('#error-codes').innerHTML = ""; 
+            document.querySelector('#error-email').innerHTML = ""; 
         }, 500);
     } else
     {
         setTimeout(function()
         {
-            document.querySelector('#error-codes').innerHTML = "Napačna e-pošta."; 
-        }, 1500);
+            document.querySelector('#error-email').innerHTML = "Napačna e-pošta."; 
+        }, 500);
+    }
+}
+
+function checkInputOnKeyUpPass (x)
+{
+    if (x.length < 8)
+    {
+        document.querySelector('#error-pass').innerHTML += "\nGeslo je prekratko.";
+    }
+    else
+    {
+        document.querySelector('#error-pass').innerHTML = "";
     }
 }
