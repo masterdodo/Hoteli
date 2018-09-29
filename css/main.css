@@ -247,11 +247,11 @@ th, td
 
 .errors
 {
-
+    margin-top: 7px;
     margin: 3px;
     margin-bottom: 10px;
     border: 0;
-    border: solid 2px #efc023;
+    font-size: 16px;
     font-family: 'Open sans', sans-serif;
     padding: 5px;
     border-radius: 10px;
