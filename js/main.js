@@ -1,8 +1,8 @@
 function checkInputOnKeyUp (x)
 {
-    var value = x.value;
-    console.log(value);
-    if( /(.+)@(.+){2,}\.(.+){2,}/.test(value) )
+    var field = x.value;
+    console.log(field);
+    if( /(.+)@(.+){2,}\.(.+){2,}/.test(field) )
     {
     console.log('Valid!');
     } else
