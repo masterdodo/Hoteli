@@ -42,7 +42,7 @@ function checkInputOnKeyUpUser(x)
                 document.querySelector('#input-register-user').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
                 userWrong = 1;
-            }, 500);
+            }, 200);
     }
     else if (x == "admin")
     {
@@ -53,7 +53,7 @@ function checkInputOnKeyUpUser(x)
                 document.querySelector('#input-register-user').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
                 userWrong = 1;
-            }, 500);
+            }, 200);
     }
     else
     {
@@ -81,7 +81,7 @@ function checkInputOnKeyUpPass(x)
                 document.querySelector('#input-register-pass').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
                 passWrong = 1;
-            }, 500);
+            }, 200);
         }
     }
     else
@@ -123,7 +123,7 @@ function checkInputOnKeyUpPassCheck(x)
                 document.querySelector('#input-register-passcheck').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
                 passCheckWrong = 1;
-            }, 500);
+            }, 200);
         }
     }
 }

@@ -42,7 +42,7 @@ function checkInputOnKeyUpPass (x)
                 document.querySelector('#input-prijava-pass').style.background = '#ad2424';
                 document.querySelector('#input-prijava-submit').disabled = true;
                 passWrong = 1;
-            }, 500);
+            }, 200);
         }
     }
     else
