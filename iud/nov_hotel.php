@@ -72,8 +72,8 @@ include ('../x/header.php');
         <tr><td class="table-label-hotel"><label for="date_from">Datum prihoda:</label></td><td><input type="date" name="date_from" class="input-standard" required></td></tr>
         <tr><td class="table-label-hotel"><label for="date_to">Datum odhoda:</label></td><td><input type="date" name="date_to" class="input-standard" required></td></tr>
         <tr><td class="table-label-hotel"><label for="picture">Slika hotela:</label></td><td><input type="file" name="picture" class="input-standard" required></td></tr><br />
-        <input class="button-standard" type="submit" name="submit" value="Dodaj hotel">
     </table>
+        <input class="button-standard" type="submit" name="submit" value="Dodaj hotel">
     </form>
 <?php
 include ('../x/footer.php');

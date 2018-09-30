@@ -100,8 +100,8 @@ include ('../x/header.php');
         <tr><td><label for="date_to">Datum odhoda: </label></td><td><input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard" required></td></tr>
         <tr><td><label for="all_places">Prosta mesta: </label></td><td><input type="numbers" name="all_places" value="' . $result['all_places'] . '" class="input-standard" required></td></tr>';
         ?>
-        <input class="button-standard" type="submit" name="submit" value="Uredi hotel">
     </table>
+        <input class="button-standard" type="submit" name="submit" value="Uredi hotel">
     </form><br />
     <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="name" value="<?php echo $result['name'] ?>">
