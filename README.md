@@ -6,7 +6,7 @@ Ta aplikacija omogoča vnašanje hotelov in prijavo na njih.<br>
 [Prijava in registracija](#prijava-in-registracija)<br>
 [Administrator](#administrator)<br>
 [Uporabniki](#uporabniki)<br>
-[Upravljanje hotelov](#upravljanje-hotelov)
+[Upravljanje hotelov](#upravljanje-hotelov)<br>
 [Slika baze](#slika-baze)
 ## Prijava in registracija
 ### 1. Registracija
