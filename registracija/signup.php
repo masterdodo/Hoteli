@@ -44,6 +44,13 @@ if (isset ($_POST['submit']))
         $_SESSION['err'] .= "Napačna izbira uporabniškega imena.\n";
         $error = 1;
     }
+    //Uporabniško ime mora biti vsaj 3 znake
+    $usernamelen = strlen($username);
+    if ($usernamelen < 3)
+    {
+        $_SESSION['err'] .= "Uporabniško ime je prekratko.\n";
+        $error = 1;
+    }
     //Preverim če je geslo manjše od 8 znakov
     if (strlen ($password) < 8)
     {

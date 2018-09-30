@@ -23,9 +23,9 @@ else if (isset ($_SESSION['username']))
         <div id="login-wrapper">
             <div id="login-subwrapper">
             <form action="checklogin.php" method="POST">
-                <input id="input-prijava-email" type="text" name="email" placeholder="E-pošta" class="input-login-standard" onkeyup="checkInputOnKeyUp(this.value)" required><br />
+                <input id="input-prijava-email" type="text" name="email" placeholder="E-pošta" class="input-login-standard" onkeyup="checkInputOnKeyUpMail(this.value)" required><br />
                 <input id="input-prijava-pass" type="password" name="password" placeholder="Geslo" class="input-login-standard" onkeyup="checkInputOnKeyUpPass(this.value)" required><br />
-                <input type="submit" name="submit" value="Prijava" class="input-login-submit">
+                <input id="input-prijava-submit" type="submit" name="submit" value="Prijava" class="input-login-submit">
                 <div class="errors" id="error-email"></div>
                 <div class="errors" id="error-pass"></div>
                 <?php
