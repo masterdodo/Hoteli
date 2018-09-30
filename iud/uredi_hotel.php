@@ -72,9 +72,10 @@ include ('../x/header.php');
         $sql->execute (array ($_GET['y']));
         $result = $sql->fetch(PDO::FETCH_ASSOC);
         //Izpišem obrazec z vpisanimi podatki
-        echo '<label for="name">Ime hotela: </label><input type="text" name="name" placeholder="Ime hotela" value="' . $result['name'] . '" class="input-standard" required><br />
-        <label for="address">Naslov hotela: </label><input type="text" name="address" placeholder="Naslov hotela" value="' . $result['address'] . '" class="input-standard" required><br />
-        <label for="city">Kraj hotela: </label><select name="city" class="input-standard">';
+        echo '<table>
+        <tr><td><label for="name">Ime hotela: </label></td><td><input type="text" name="name" placeholder="Ime hotela" value="' . $result['name'] . '" class="input-standard" required></td></tr>
+        <tr><td><label for="address">Naslov hotela: </label></td><td><input type="text" name="address" placeholder="Naslov hotela" value="' . $result['address'] . '" class="input-standard" required></td></tr>
+        <tr><td><label for="city">Kraj hotela: </label></td><td><select name="city" class="input-standard">';
         $stmt = $pdo->query ('SELECT * FROM cities');
         foreach ($stmt as $row1)
         {
@@ -94,12 +95,13 @@ include ('../x/header.php');
         $date_to = new DateTime($date_to);
         $dateresult_from = $date_from->format("Y-m-d");
         $dateresult_to = $date_to->format("Y-m-d");
-        echo '</select><br />
-        <label for="date_from">Datum prihoda: </label><input type="date" name="date_from" value="' . $dateresult_from . '" class="input-standard" required><br />
-        <label for="date_to">Datum odhoda: </label><input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard" required><br />';
-              echo '<label for="all_places">Prosta mesta: </label><input type="numbers" name="all_places" value="' . $result['all_places'] . '" class="input-standard" required><br />';
+        echo '</select></td></tr>
+        <tr><td><label for="date_from">Datum prihoda: </label></td><td><input type="date" name="date_from" value="' . $dateresult_from . '" class="input-standard" required></td></tr>
+        <tr><td><label for="date_to">Datum odhoda: </label></td><td><input type="date" name="date_to" value="' . $dateresult_to . '" class="input-standard" required></td></tr>
+        <tr><td><label for="all_places">Prosta mesta: </label></td><td><input type="numbers" name="all_places" value="' . $result['all_places'] . '" class="input-standard" required></td></tr>';
         ?>
         <input class="button-standard" type="submit" name="submit" value="Uredi hotel">
+    </table>
     </form><br />
     <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="name" value="<?php echo $result['name'] ?>">
