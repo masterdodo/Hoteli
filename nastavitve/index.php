@@ -88,8 +88,8 @@ else if (isset ($_POST['submit-avatar']))
     <input type="file" name="avatar" class="input-standard" required>
     <input type="submit" name="submit-avatar" value="Spremeni" class="input-submit">
 </form>
-<div id="error-user"></div>
-<div id="error-pass"></div>
+<div class="errors" id="error-user"></div>
+<div class="errors" id="error-pass"></div>
 <?php
 include ('../x/footer.php');
 ?>
