@@ -7,9 +7,9 @@ $css = '../../css/main.css';
 include '../../x/header.php';
 ?>
     <table class="table-standard">
-        <thead>
-            <td>Epošta</td>
-            <td>Odstrani</td>
+        <thead id="table-thead">
+            <td class="table-td">Epošta</td>
+            <td class="table-td">Odstrani</td>
         </thead>
         <tbody>
             <?php
@@ -23,8 +23,8 @@ include '../../x/header.php';
                 foreach ($stmt as $row)
                 {
                     echo '<tr>
-                          <td>' . $row['email'] . '</td>
-                          <td><a class="table-button" href="izbrisi_ponudnika.php?y=' . $row['id'] . '">Odstrani</a></td>
+                          <td class="table-td">' . $row['email'] . '</td>
+                          <td class="table-td"><a class="table-button" href="izbrisi_ponudnika.php?y=' . $row['id'] . '">Odstrani</a></td>
                           </tr>';
                 }
             ?>
