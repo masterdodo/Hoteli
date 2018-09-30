@@ -208,12 +208,12 @@ body
     margin-top: 50px;
 }
 
-thead
+.table-standard thead
 {
     font-weight: bold;
 }
 
-th, td
+.table-standard th, td
 {
     border-bottom: 1px solid #333;
     padding: 8px;
