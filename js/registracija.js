@@ -1,3 +1,7 @@
+var emailWrong = 0;
+var userWrong = 0;
+var passWrong = 0;
+var passCheckWrong = 0;
 function checkInputOnKeyUpMail(x)
 {
     if( /(.+)@(.+){2,}\.(.+){2,}/.test(x) )
@@ -5,7 +9,11 @@ function checkInputOnKeyUpMail(x)
         document.querySelector('#error-email').innerHTML = "";
         document.querySelector('#input-register-email').style.background = '#6faf48';
         document.querySelector('#error-email').style.display = "none";
-        document.querySelector('#input-register-submit').disabled = false;
+        emailWrong = 0;
+        if (emailWrong == 0 && userWrong == 0 && passWrong == 0 && passCheckWrong == 0)
+        {
+            document.querySelector('#input-register-submit').disabled = false;
+        }
     } 
     else
     {
@@ -17,6 +25,7 @@ function checkInputOnKeyUpMail(x)
                 document.querySelector('#error-email').innerHTML = "Napačna e-pošta."; 
                 document.querySelector('#input-register-email').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
+                emailWrong = 1;
             }, 500);
         }
     }
@@ -32,6 +41,7 @@ function checkInputOnKeyUpUser(x)
                 document.querySelector('#error-user').innerHTML = "Uporabniško ime rabi več<br />kot dva znaka."; 
                 document.querySelector('#input-register-user').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
+                userWrong = 1;
             }, 500);
     }
     else if (x == "admin")
@@ -42,6 +52,7 @@ function checkInputOnKeyUpUser(x)
                 document.querySelector('#error-user').innerHTML = "Nedovoljeno ime."; 
                 document.querySelector('#input-register-user').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
+                userWrong = 1;
             }, 500);
     }
     else
@@ -49,7 +60,11 @@ function checkInputOnKeyUpUser(x)
         document.querySelector('#error-user').innerHTML = ""; 
         document.querySelector('#input-register-user').style.background = '#6faf48';
         document.querySelector('#error-user').style.display = "none";
-        document.querySelector('#input-register-submit').disabled = false;
+        userWrong = 0;
+        if (emailWrong == 0 && userWrong == 0 && passWrong == 0 && passCheckWrong == 0)
+        {
+            document.querySelector('#input-register-submit').disabled = false;
+        }
     }
 }
 
@@ -65,6 +80,7 @@ function checkInputOnKeyUpPass(x)
                 document.querySelector('#error-pass').innerHTML = "Geslo je prekratko.";
                 document.querySelector('#input-register-pass').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
+                passWrong = 1;
             }, 500);
         }
     }
@@ -73,7 +89,11 @@ function checkInputOnKeyUpPass(x)
         document.querySelector('#error-pass').innerHTML = "";
         document.querySelector('#input-register-pass').style.background = '#6faf48';
         document.querySelector('#error-pass').style.display = "none";
-        document.querySelector('#input-register-submit').disabled = false;
+        passWrong = 0;
+        if (emailWrong == 0 && userWrong == 0 && passWrong == 0 && passCheckWrong == 0)
+        {
+            document.querySelector('#input-register-submit').disabled = false;
+        }
     }
 }
 
@@ -86,7 +106,11 @@ function checkInputOnKeyUpPassCheck(x)
         document.querySelector('#error-passcheck').innerHTML = "";
         document.querySelector('#input-register-passcheck').style.background = '#6faf48';
         document.querySelector('#error-passcheck').style.display = "none";
-        document.querySelector('#input-register-submit').disabled = false;
+        passCheckWrong = 0;
+        if (emailWrong == 0 && userWrong == 0 && passWrong == 0 && passCheckWrong == 0)
+        {
+            document.querySelector('#input-register-submit').disabled = false;
+        }
     }
     else
     {
@@ -98,6 +122,7 @@ function checkInputOnKeyUpPassCheck(x)
                 document.querySelector('#error-passcheck').innerHTML = "Gesli se ne ujemata.";
                 document.querySelector('#input-register-passcheck').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
+                passCheckWrong = 1;
             }, 500);
         }
     }
