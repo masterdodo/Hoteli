@@ -29,7 +29,7 @@ function checkInputOnKeyUpUser(x)
         setTimeout(function()
             {
                 document.querySelector('#error-user').style.display = "block";
-                document.querySelector('#error-user').innerHTML = "Uporabniško ime rabi več\nkot dva znaka."; 
+                document.querySelector('#error-user').innerHTML = "Uporabniško ime rabi več<br />kot dva znaka."; 
                 document.querySelector('#input-register-user').style.background = '#ad2424';
                 document.querySelector('#input-register-submit').disabled = true;
             }, 500);
