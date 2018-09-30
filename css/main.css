@@ -258,3 +258,8 @@ body
     display: none;
     color: #b72c2c;
 }
+
+.table-label-hotel
+{
+    width: 20px;
+}
