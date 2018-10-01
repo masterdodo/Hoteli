@@ -208,12 +208,12 @@ body
     margin-top: 50px;
 }
 
-thead
+#table-thead
 {
     font-weight: bold;
 }
 
-th, td
+.table-td
 {
     border-bottom: 1px solid #333;
     padding: 8px;
@@ -244,3 +244,22 @@ th, td
     margin-left: 5px;
     max-height: 25px;
 }
+
+.errors
+{
+    margin-top: 4px;
+    margin: 3px;
+    margin-bottom: 4px;
+    border: 0;
+    font-size: 16px;
+    font-family: 'Open sans', sans-serif;
+    padding: 2px;
+    border-radius: 4px;
+    display: none;
+    color: #b72c2c;
+}
+
+/*.table-label-hotel
+{
+    width: 20px;
+}*/

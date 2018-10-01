@@ -1,6 +1,7 @@
 <?php
 $title = "Uredi profil";
 $css = "../css/main.css";
+$js = "../js/nastavitve.js";
 include ('../x/header.php');
 require ('../x/dbconn.php');
 ?>
@@ -73,13 +74,13 @@ else if (isset ($_POST['submit-avatar']))
 }
 ?>
 <form method="post">
-    <input type="text" name="username" placeholder="Uporabniško ime" class="input-standard" required>
-    <input type="submit" name="submit-username" value="Spremeni" class="input-submit">
+    <input id="input-nastavitve-username" type="text" name="username" placeholder="Uporabniško ime" class="input-standard" onkeyup="checkInputOnKeUpUser(this.value)" required>
+    <input id="input-nastavitve-username-submit" type="submit" name="submit-username" value="Spremeni" class="input-submit">
 </form>
 <br />
 <form method="post">
-    <input type="password" name="password" placeholder="Geslo" class="input-standard" required <?php if (isset ($_SESSION['google-user'])){ echo 'disabled';} ?>>
-    <input type="submit" name="submit-password" value="Spremeni" class="input-submit" <?php if (isset ($_SESSION['google-user'])){ echo 'disabled';} ?>>
+    <input id="input-nastavitve-pass" type="password" name="password" placeholder="Geslo" class="input-standard" onkeyup="checkInputOnKeUpPass(this.value)" required <?php if (isset ($_SESSION['google-user'])){ echo 'disabled';} ?>>
+    <input id="input-nastavitve-pass-submit" type="submit" name="submit-password" value="Spremeni" class="input-submit" <?php if (isset ($_SESSION['google-user'])){ echo 'disabled';} ?>>
 </form>
 <br />
 <form method="post" enctype="multipart/form-data">
@@ -87,6 +88,8 @@ else if (isset ($_POST['submit-avatar']))
     <input type="file" name="avatar" class="input-standard" required>
     <input type="submit" name="submit-avatar" value="Spremeni" class="input-submit">
 </form>
+<div class="errors" id="error-user"></div>
+<div class="errors" id="error-pass"></div>
 <?php
 include ('../x/footer.php');
 ?>

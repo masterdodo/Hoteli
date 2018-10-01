@@ -29,25 +29,32 @@ if (isset ($_POST['submit']))
     //Preverim če uporabniško ime že obstaja
     if ($result)
     {
-        $_SESSION['err'] = "Uporabniško ime že obstaja.\n";
+        $_SESSION['err'] = "Uporabniško ime že obstaja.<br />";
         $error = 1;
     }
     //Preverim če epošta že obstaja
     if ($result1)
     {
-        $_SESSION['err'] .= "Epošta že obstaja.\n";
+        $_SESSION['err'] .= "Epošta že obstaja.<br />";
         $error = 1;
     }
     //Preverim če je uporabniško ime admin
     if ($username == "admin")
     {
-        $_SESSION['err'] .= "Napačna izbira uporabniškega imena.\n";
+        $_SESSION['err'] .= "Napačna izbira uporabniškega imena.<br />";
+        $error = 1;
+    }
+    //Uporabniško ime mora biti vsaj 3 znake
+    $usernamelen = strlen($username);
+    if ($usernamelen < 3)
+    {
+        $_SESSION['err'] .= "Uporabniško ime je prekratko.<br />";
         $error = 1;
     }
     //Preverim če je geslo manjše od 8 znakov
     if (strlen ($password) < 8)
     {
-        $_SESSION['err'] .= "Geslo mora biti večje od 8 znakov.";
+        $_SESSION['err'] .= "Geslo mora biti večje od 8 znakov.<br />";
         $error = 1;
     }
     //Preverim če se geslo ujema

@@ -55,9 +55,10 @@ $css = "../css/main.css";
 include ('../x/header.php');
 ?>
     <form method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Ime hotela" class="input-standard" required><br />
-        <input type="text" name="address" placeholder="Naslov hotela" class="input-standard" required><br />
-        <select name="city" class="input-standard">
+    <table>
+        <tr><td class="table-label-hotel"><label for="name">Ime hotela:</label></td><td><input type="text" name="name" placeholder="Ime hotela" class="input-standard" required></td></tr>
+        <tr><td class="table-label-hotel"><label for="address">Naslov hotela:</label></td><td><input type="text" name="address" placeholder="Naslov hotela" class="input-standard" required></td></tr>
+        <tr><td class="table-label-hotel"><label for="city">Kraj hotela:</label></td><td><select name="city" class="input-standard">
         <?php
         include ('../x/dbconn.php');
         $stmt = $pdo->query ('SELECT * FROM cities');
@@ -66,11 +67,12 @@ include ('../x/header.php');
             echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
         }
         ?>
-        </select><br />
-        <input type="numbers" name="all_places" class="input-standard" placeholder="Število prostih mest" required><br />
-        <label for="date_from">Datum prihoda:</label><input type="date" name="date_from" class="input-standard" required><br />
-        <label for="date_to">Datum odhoda:</label><input type="date" name="date_to" class="input-standard" required><br />
-        <label for="picture">Slika hotela:</label><input type="file" name="picture" class="input-standard" required><br /><br />
+        </select></td></tr>
+        <tr><td class="table-label-hotel"><label for="all_places">Število prostih mest:</label></td><td><input type="numbers" name="all_places" class="input-standard" placeholder="Število prostih mest" required></td></tr>
+        <tr><td class="table-label-hotel"><label for="date_from">Datum prihoda:</label></td><td><input type="date" name="date_from" class="input-standard" required></td></tr>
+        <tr><td class="table-label-hotel"><label for="date_to">Datum odhoda:</label></td><td><input type="date" name="date_to" class="input-standard" required></td></tr>
+        <tr><td class="table-label-hotel"><label for="picture">Slika hotela:</label></td><td><input type="file" name="picture" class="input-standard" required></td></tr><br />
+    </table>
         <input class="button-standard" type="submit" name="submit" value="Dodaj hotel">
     </form>
 <?php
