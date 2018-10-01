@@ -122,6 +122,14 @@ body
     justify-content: center;
 }
 
+#register-wrapper
+{
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .input-login-standard
 {
     width: 200px;
