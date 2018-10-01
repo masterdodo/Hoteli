@@ -9,7 +9,7 @@
         <script src="../js/registracija.js"></script>
     </head>
     <body>
-    <div id="register-wrapper">
+    <div id="login-wrapper">
             <div id="login-subwrapper">
                 <form action="signup.php" method="POST" enctype="multipart/form-data">
                     <label for="email">E-pošta:</label><br /><input id="input-register-email" class="input-login-standard" type="text" name="email" placeholder="Epošta" onkeyup="checkInputOnKeyUpMail(this.value)" required><br />

@@ -116,15 +116,7 @@ body
 
 #login-wrapper
 {
-    margin-top: 30vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#register-wrapper
-{
-    margin-top: 20vh;
+    margin-top: 25vh;
     display: flex;
     align-items: center;
     justify-content: center;
