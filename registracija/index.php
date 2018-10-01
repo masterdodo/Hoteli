@@ -12,10 +12,10 @@
     <div id="login-wrapper">
             <div id="login-subwrapper">
                 <form action="signup.php" method="POST" enctype="multipart/form-data">
-                    <input id="input-register-email" class="input-login-standard" type="text" name="email" placeholder="Epošta" onkeyup="checkInputOnKeyUpMail(this.value)" required><br />
-                    <input id="input-register-user" class="input-login-standard" type="text" name="username" placeholder="Uporabniško ime" onkeyup="checkInputOnKeyUpUser(this.value)" required><br />
-                    <input id="input-register-pass" class="input-login-standard" type="password" name="password" placeholder="Geslo" onkeyup="checkInputOnKeyUpPass(this.value)" required><br />
-                    <input id="input-register-passcheck" class="input-login-standard" type="password" name="passwordcheck" placeholder="Potrditev gesla" onkeyup="checkInputOnKeyUpPassCheck(this.value)" required><br />
+                    <label for="email">E-pošta:</label><br /><input id="input-register-email" class="input-login-standard" type="text" name="email" placeholder="Epošta" onkeyup="checkInputOnKeyUpMail(this.value)" required><br />
+                    <label for="username">Uporabniško ime:</label><br /><input id="input-register-user" class="input-login-standard" type="text" name="username" placeholder="Uporabniško ime" onkeyup="checkInputOnKeyUpUser(this.value)" required><br />
+                    <label for="password">Geslo:</label><br /><input id="input-register-pass" class="input-login-standard" type="password" name="password" placeholder="Geslo" onkeyup="checkInputOnKeyUpPass(this.value)" required><br />
+                    <label for="passwordcheck">Potrdite geslo:</label><br /><input id="input-register-passcheck" class="input-login-standard" type="password" name="passwordcheck" placeholder="Potrditev gesla" onkeyup="checkInputOnKeyUpPassCheck(this.value)" required><br />
                     <label for="avatar">Slika profila (ni obvezno):</label><br />
                     <input class="input-login-standard" type="file" name="avatar"><br />
                     <input id="input-register-submit" class="input-login-submit" type="submit" name="submit" value="Registracija">
