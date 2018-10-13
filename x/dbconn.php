@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'hoteli';
 $user = 'phpmyadmin';
-$pass = '1W2E3Radmin';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
